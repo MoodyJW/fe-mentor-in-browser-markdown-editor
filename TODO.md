@@ -1,0 +1,40 @@
+- [x] component structure
+- [ ] sidenav
+  - [ ] new file
+    - [ ] send null data to content area
+    - [ ] styles
+  - [ ] current files
+    - [ ] retrieve from service either by user or all at once
+    - [ ] styles
+  - [ ] styles
+  - [ ] tests...
+- [ ] header
+  - [ ] file name
+    - [ ] styles
+    - [ ] use input or service
+  - [ ] delete
+    - [ ] styles
+    - [ ] service to remove
+  - [ ] save
+    - [ ] styles
+    - [ ] service to save (maybe add autosave?)
+  - [ ] styles
+  - [ ] tests...
+- [ ] preview bar
+  - [ ] toggle
+    - [ ] trigger content area preview/edit
+  - [ ] styles
+- [ ] content
+  - [ ] styles
+  - [ ] save preview too and just swap display
+  - [ ] tests...
+- [ ] delete modal
+  - [ ] styles
+  - [ ] confirm button
+- [ ] services
+  - [ ] ngrx store?
+  - [ ] firebase to save files?
+  - [ ] user tokens or all files visible to all users?
+- [ ] markdown logic
+  - [ ] from scratch or maybe find an API/lib?
+  - [ ] maybe add buttons for various options
