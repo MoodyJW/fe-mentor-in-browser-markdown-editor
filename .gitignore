@@ -42,4 +42,12 @@ testem.log
 
 # System Files
 .DS_Store
+.prettierignore
 Thumbs.db
+
+# Avoid accidental upload of the Sketch and Figma design files
+*.sketch
+*.fig
+
+# Avoid accidental XD upload if you convert the design file
+*.xd
