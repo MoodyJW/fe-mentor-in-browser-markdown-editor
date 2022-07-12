@@ -11,6 +11,7 @@ import { CurrentFileNameComponent } from './components/current-file-name/current
 import { PreviewBarComponent } from './components/preview-bar/preview-bar.component';
 import { MdContentComponent } from './components/md-content/md-content.component';
 import { DeleteModalComponent } from './components/delete-modal/delete-modal.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,7 @@ import { DeleteModalComponent } from './components/delete-modal/delete-modal.com
     MdContentComponent,
     DeleteModalComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
