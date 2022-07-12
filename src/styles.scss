@@ -1,1 +1,77 @@
-/* You can add global styles to this file, and also import other style files */
+$breakpoints: (
+  "mobile": (
+    min-width: 375px,
+  ),
+  "tablet": (
+    min-width: 700px,
+  ),
+  "desktop": (
+    min-width: 1000px,
+  ),
+) !default;
+
+@mixin respond-to($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media #{inspect(map-get($breakpoints, $breakpoint))} {
+      @content;
+    }
+  } @else {
+    @warn "no value from `#{$breakpoint}`. "
+        + "available: #{map-keys($breakpoints)}.";
+  }
+}
+
+:root {
+  --primary-text: hsla(216, 9%, 23%, 1);
+  --subdued-text: hsla(216, 4%, 51%, 1);
+  --header-text: hsla(216, 9%, 23%, 1);
+  --primary-bg: hsla(0, 0%, 100%, 1);
+  --secondary-bg: hsla(0, 0%, 96%, 1);
+  --sidenav-bg: hsla(216, 8%, 12%, 1);
+  --toolbar-bg: hsla(220, 7%, 18%, 1);
+  --orange: hsla(13, 75%, 58%, 1);
+  --cancel-bg: hsla(216, 9%, 23%, 1);
+  --section-title-bar-bg: hsla(0, 0%, 96%, 1);
+  --text-block-bg: hsla(0, 0%, 96%, 1);
+  --divider: hsla(0, 0%, 90%, 1);
+
+  .dark-theme {
+    --primary-text: hsla(222, 9%, 78%, 1);
+    --subdued-text: hsla(222, 9%, 78%, 1);
+    --header-text: hsla(0, 0%, 100%, 1);
+    --primary-bg: hsla(225, 9%, 9%, 1);
+    --secondary-bg: hsla(220, 7%, 18%, 1);
+    --section-title-bar-bg: hsla(216, 8%, 12%, 1);
+    --text-block-bg: hsla(220, 7%, 18%, 1);
+    --divider: hsla(216, 8%, 38%, 1);
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  font-family: "Roboto Mono", monospace;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  color: var(--primary-text);
+  transition-duration: 500ms;
+  -webkit-font-smoothing: auto;
+  -moz-osx-font-smoothing: auto;
+
+  .roboto-mono {
+    font-family: "Roboto Mono", monospace;
+  }
+
+  .roboto-slab {
+    font-family: "Roboto Slab", serif;
+  }
+}
