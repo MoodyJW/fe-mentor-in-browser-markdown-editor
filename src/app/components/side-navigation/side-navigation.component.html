@@ -1,3 +1,16 @@
-<p>side-navigation works!</p>
-<app-action-button></app-action-button>
-<app-md-file></app-md-file>
+<mat-sidenav-container class="example-container">
+  <mat-sidenav #sidenav mode="side" [opened]="isOpen">
+    <h1>MARKDOWN</h1>
+    <h2>MY DOCUMENTS</h2>
+    <app-action-button [buttonText]="'+ New Document'"></app-action-button>
+    <ul>
+      <app-md-file></app-md-file>
+    </ul>
+    <app-theme-toggle></app-theme-toggle>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <app-header (toggleSidenav)="isOpen = $event"></app-header>
+    <app-preview-bar></app-preview-bar>
+    <app-md-content></app-md-content>
+  </mat-sidenav-content>
+</mat-sidenav-container>

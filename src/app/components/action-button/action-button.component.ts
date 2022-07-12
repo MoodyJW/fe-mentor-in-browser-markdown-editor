@@ -1,15 +1,25 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-action-button',
   templateUrl: './action-button.component.html',
-  styleUrls: ['./action-button.component.scss']
+  styleUrls: ['./action-button.component.scss'],
 })
 export class ActionButtonComponent implements OnInit {
+  @Input() buttonText: string = '';
+  @Input() actionType: string = '';
+  @Output() actionClicked = new EventEmitter<any>();
 
-  constructor() { }
+  menuOpen = false;
 
-  ngOnInit(): void {
+  constructor() {}
+
+  ngOnInit(): void {}
+
+  actionButtonClicked() {
+    if (this.actionType === 'sidenav') {
+      this.menuOpen = !this.menuOpen;
+      this.actionClicked.emit(this.menuOpen);
+    }
   }
-
 }

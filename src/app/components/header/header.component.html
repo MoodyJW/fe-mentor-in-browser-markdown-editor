@@ -1,5 +1,9 @@
-<p>header works!</p>
+<h1>MARKDOWN</h1>
+<app-action-button
+  [buttonText]="'hamburger'"
+  [actionType]="'sidenav'"
+  (actionClicked)="hamburgerClicked($event)"
+></app-action-button>
 <app-current-file-name></app-current-file-name>
-<app-action-button></app-action-button>
-<app-action-button></app-action-button>
-<app-delete-modal></app-delete-modal>
+<app-action-button [buttonText]="'delete'"></app-action-button>
+<app-action-button [buttonText]="'save'"></app-action-button>

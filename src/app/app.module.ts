@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSidenavModule } from '@angular/material/sidenav';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,21 +13,27 @@ import { CurrentFileNameComponent } from './components/current-file-name/current
 import { PreviewBarComponent } from './components/preview-bar/preview-bar.component';
 import { MdContentComponent } from './components/md-content/md-content.component';
 import { DeleteModalComponent } from './components/delete-modal/delete-modal.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ThemeToggleComponent } from './components/theme-toggle/theme-toggle.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    SideNavigationComponent,
     ActionButtonComponent,
-    MdFileComponent,
-    HeaderComponent,
+    AppComponent,
     CurrentFileNameComponent,
-    PreviewBarComponent,
-    MdContentComponent,
     DeleteModalComponent,
+    HeaderComponent,
+    MdContentComponent,
+    MdFileComponent,
+    PreviewBarComponent,
+    SideNavigationComponent,
+    ThemeToggleComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule],
+  imports: [
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    BrowserModule,
+    MatSidenavModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
