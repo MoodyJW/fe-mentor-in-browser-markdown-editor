@@ -1,4 +1,5 @@
 - [x] component structure
+- [x] global styles
 - [ ] sidenav
   - [ ] new file
     - [ ] send null data to content area
