@@ -1,4 +1,4 @@
-.example-container {
+.sidenav-container {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -6,9 +6,7 @@
   right: 0;
 }
 
-.example-events {
-  width: 300px;
-  height: 200px;
-  overflow: auto;
-  border: 1px solid #555;
+.sidenav-menu-container {
+  width: 250px;
+  padding: 24px;
 }

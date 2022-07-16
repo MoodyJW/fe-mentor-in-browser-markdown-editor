@@ -1,8 +1,21 @@
+.theme-toggle-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  .icon-container {
+    svg {
+      display: block;
+    }
+  }
+}
+
 .toggle {
   position: relative;
   display: inline-block;
   width: 48px;
   height: 24px;
+  margin: 0 10px;
 }
 
 .toggle input {

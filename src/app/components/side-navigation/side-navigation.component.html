@@ -1,15 +1,17 @@
-<mat-sidenav-container class="example-container">
+<mat-sidenav-container class="sidenav-container">
   <mat-sidenav #sidenav mode="side" [opened]="isOpen">
-    <h1>MARKDOWN</h1>
-    <h2>MY DOCUMENTS</h2>
-    <app-action-button
-      [actionType]="'create'"
-      (actionClicked)="createNewFile($event)"
-    ></app-action-button>
-    <ul>
-      <app-md-file></app-md-file>
-    </ul>
-    <app-theme-toggle></app-theme-toggle>
+    <div class="sidenav-menu-container">
+      <h1>MARKDOWN</h1>
+      <h2>MY DOCUMENTS</h2>
+      <app-action-button
+        [actionType]="'create'"
+        (actionClicked)="createNewFile($event)"
+      ></app-action-button>
+      <ul>
+        <app-md-file></app-md-file>
+      </ul>
+      <app-theme-toggle></app-theme-toggle>
+    </div>
   </mat-sidenav>
   <mat-sidenav-content>
     <app-header (toggleSidenav)="isOpen = $event"></app-header>
