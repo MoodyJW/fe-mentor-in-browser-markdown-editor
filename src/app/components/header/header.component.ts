@@ -7,12 +7,21 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   @Output() toggleSidenav = new EventEmitter<boolean>();
+
   constructor() {}
 
   ngOnInit(): void {}
 
-  hamburgerClicked(event: boolean) {
+  hamburgerClicked(event: boolean): void {
     console.log(event);
     this.toggleSidenav.emit(event);
+  }
+
+  deleteCurrentFile(): void {
+    console.log('delete');
+  }
+
+  saveCurrentFile(): void {
+    console.log('save');
   }
 }
