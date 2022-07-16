@@ -2,4 +2,19 @@
 <!-- template switch for big orange, small orange -->
 <!-- icons small and large -->
 
-<button (click)="actionButtonClicked()">{{ buttonText }}</button>
+<ng-container [ngSwitch]="actionType">
+  <ng-container *ngSwitchCase="'sidenavToggle'">
+    <button (click)="sidenavToggleClicked()">
+      {{ menuOpen ? "X" : "hamburder" }}
+    </button>
+  </ng-container>
+  <ng-container *ngSwitchCase="'create'">
+    <button (click)="createNewFile()">+ New Document</button>
+  </ng-container>
+  <ng-container *ngSwitchCase="'delete'">
+    <button (click)="deleteCurrentFile()">delete</button>
+  </ng-container>
+  <ng-container *ngSwitchCase="'save'">
+    <button (click)="saveCurrentFile()">save</button>
+  </ng-container>
+</ng-container>

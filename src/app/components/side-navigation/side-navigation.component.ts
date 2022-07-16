@@ -10,4 +10,8 @@ export class SideNavigationComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+
+  createNewFile(event: any): void {
+    console.log('create');
+  }
 }
