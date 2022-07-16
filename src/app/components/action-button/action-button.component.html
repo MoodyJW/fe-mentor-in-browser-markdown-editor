@@ -4,14 +4,17 @@
 
 <ng-container [ngSwitch]="actionType">
   <ng-container *ngSwitchCase="'sidenavToggle'">
-    <button (click)="actionButtonClicked()">
+    <button (click)="sidenavToggleClicked()">
       {{ menuOpen ? "X" : "hamburder" }}
     </button>
   </ng-container>
+  <ng-container *ngSwitchCase="'create'">
+    <button (click)="createNewFile()">+ New Document</button>
+  </ng-container>
   <ng-container *ngSwitchCase="'delete'">
-    <button>delete</button>
+    <button (click)="deleteCurrentFile()">delete</button>
   </ng-container>
   <ng-container *ngSwitchCase="'save'">
-    <button>save</button>
+    <button (click)="saveCurrentFile()">save</button>
   </ng-container>
 </ng-container>

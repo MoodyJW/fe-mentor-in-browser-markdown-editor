@@ -2,7 +2,10 @@
   <mat-sidenav #sidenav mode="side" [opened]="isOpen">
     <h1>MARKDOWN</h1>
     <h2>MY DOCUMENTS</h2>
-    <app-action-button [buttonText]="'+ New Document'"></app-action-button>
+    <app-action-button
+      [actionType]="'create'"
+      (actionClicked)="createNewFile($event)"
+    ></app-action-button>
     <ul>
       <app-md-file></app-md-file>
     </ul>

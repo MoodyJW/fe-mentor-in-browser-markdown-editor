@@ -13,15 +13,15 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {}
 
   hamburgerClicked(event: boolean): void {
-    console.log(event);
+    console.log('hamburger');
     this.toggleSidenav.emit(event);
   }
 
-  deleteCurrentFile(): void {
+  deleteCurrentFile(event: string): void {
     console.log('delete');
   }
 
-  saveCurrentFile(): void {
+  saveCurrentFile(event: string): void {
     console.log('save');
   }
 }
