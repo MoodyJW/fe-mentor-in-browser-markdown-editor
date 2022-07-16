@@ -10,7 +10,7 @@ export class ActionButtonComponent implements OnInit {
   @Input() actionType!: 'delete' | 'create' | 'save' | 'sidenavToggle';
   @Output() actionClicked = new EventEmitter<any>();
 
-  menuOpen = false;
+  menuOpen = true;
 
   constructor() {}
 

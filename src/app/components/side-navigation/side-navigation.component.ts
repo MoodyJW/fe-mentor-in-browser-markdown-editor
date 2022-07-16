@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./side-navigation.component.scss'],
 })
 export class SideNavigationComponent implements OnInit {
-  isOpen = false;
+  isOpen = true;
   constructor() {}
 
   ngOnInit(): void {}
