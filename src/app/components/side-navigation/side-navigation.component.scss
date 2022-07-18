@@ -4,9 +4,13 @@
   bottom: 0;
   left: 0;
   right: 0;
-}
 
-.sidenav-menu-container {
-  width: 250px;
-  padding: 24px;
+  mat-sidenav {
+    background-color: var(--sidenav-bg);
+  }
+
+  .sidenav-menu-container {
+    width: 250px;
+    padding: 24px;
+  }
 }

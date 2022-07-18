@@ -9,7 +9,9 @@
     </button>
   </ng-container>
   <ng-container *ngSwitchCase="'create'">
-    <button (click)="createNewFile()">+ New Document</button>
+    <button class="new-document-button" (click)="createNewFile()">
+      + New Document
+    </button>
   </ng-container>
   <ng-container *ngSwitchCase="'delete'">
     <button (click)="deleteCurrentFile()">delete</button>
