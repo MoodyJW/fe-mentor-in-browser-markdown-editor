@@ -69,7 +69,7 @@ $breakpoints: (
 :root {
   --primary-text: white;
   --secondary-text: hsla(222, 9%, 78%, 1);
-  --subdued-text: hsla(216, 4%, 51%, 1);
+  --subdued: hsla(216, 4%, 51%, 1);
   --header-text: hsla(0, 0%, 100%, 1);
   --primary-bg: hsla(225, 9%, 9%, 1);
   --secondary-bg: hsla(220, 7%, 18%, 1);
@@ -78,6 +78,7 @@ $breakpoints: (
   --orange: hsla(13, 75%, 58%, 1);
   --orange-hover: hsla(21, 86%, 68%, 1);
   --cancel-bg: hsla(216, 9%, 23%, 1);
+  --scroll-thumb: hsla(216, 9%, 23%, 1);
   --section-title-bar-bg: hsla(216, 8%, 12%, 1);
   --text-block-bg: hsla(220, 7%, 18%, 1);
   --divider: hsla(216, 8%, 38%, 1);

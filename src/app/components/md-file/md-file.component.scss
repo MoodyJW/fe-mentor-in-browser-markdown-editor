@@ -1,0 +1,24 @@
+.file-container {
+  display: flex;
+  gap: 16px;
+
+  .file-icon {
+    display: flex;
+    align-items: center;
+  }
+
+  .file-info {
+    font-family: "Roboto";
+    .file-created-date {
+      color: var(--subdued);
+      font-size: 13px;
+      line-height: 15px;
+    }
+
+    .file-name {
+      font-size: 15px;
+      line-height: 18px;
+      margin-top: 3px;
+    }
+  }
+}

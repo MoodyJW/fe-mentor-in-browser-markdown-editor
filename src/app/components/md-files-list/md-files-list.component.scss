@@ -1,0 +1,9 @@
+.files-list {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+
+  .file-item {
+    list-style-type: none;
+  }
+}

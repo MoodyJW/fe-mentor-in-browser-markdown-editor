@@ -15,6 +15,7 @@ import { MdFileComponent } from './components/md-file/md-file.component';
 import { PreviewBarComponent } from './components/preview-bar/preview-bar.component';
 import { SideNavigationComponent } from './components/side-navigation/side-navigation.component';
 import { ThemeToggleComponent } from './components/theme-toggle/theme-toggle.component';
+import { MdFilesListComponent } from './components/md-files-list/md-files-list.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { ThemeToggleComponent } from './components/theme-toggle/theme-toggle.com
     PreviewBarComponent,
     SideNavigationComponent,
     ThemeToggleComponent,
+    MdFilesListComponent,
   ],
   imports: [
     AppRoutingModule,
