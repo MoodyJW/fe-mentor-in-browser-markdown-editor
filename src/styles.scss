@@ -68,7 +68,8 @@ $breakpoints: (
 
 :root {
   --primary-text: white;
-  --subdued-text: hsla(222, 9%, 78%, 1);
+  --secondary-text: hsla(222, 9%, 78%, 1);
+  --subdued-text: hsla(216, 4%, 51%, 1);
   --header-text: hsla(0, 0%, 100%, 1);
   --primary-bg: hsla(225, 9%, 9%, 1);
   --secondary-bg: hsla(220, 7%, 18%, 1);
@@ -84,7 +85,7 @@ $breakpoints: (
 
   .light-theme {
     --primary-text: hsla(216, 9%, 23%, 1);
-    --subdued-text: hsla(216, 4%, 51%, 1);
+    --secondary-text: hsla(216, 4%, 51%, 1);
     --header-text: hsla(216, 9%, 23%, 1);
     --primary-bg: hsla(0, 0%, 100%, 1);
     --secondary-bg: hsla(0, 0%, 96%, 1);
@@ -105,7 +106,7 @@ html {
 }
 
 body {
-  font-family: "Roboto Mono", monospace;
+  font-family: "Roboto Mono", monospace, sans-serif;
   font-weight: 400;
   font-size: 14px;
   line-height: 24px;

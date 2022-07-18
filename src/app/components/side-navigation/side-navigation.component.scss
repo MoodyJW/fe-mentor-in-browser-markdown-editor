@@ -12,5 +12,30 @@
   .sidenav-menu-container {
     width: 250px;
     padding: 24px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    .sidenav-header {
+      font-family: "Commissioner", sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 5px;
+      margin-bottom: 27px;
+    }
+
+    .sidenav-subheader {
+      color: var(--subdued-text);
+      font-family: "Roboto", sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 16px;
+      letter-spacing: 2px;
+      margin-bottom: 29px;
+    }
+
+    .theme-toggle-container {
+      margin-top: auto;
+    }
   }
 }
