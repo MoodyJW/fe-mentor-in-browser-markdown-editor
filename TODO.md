@@ -3,11 +3,14 @@
 - [ ] sidenav
   - [ ] new file
     - [ ] send null data to content area
-    - [ ] styles
+    - [x] styles
   - [ ] current files
     - [ ] retrieve from service either by user or all at once
     - [ ] styles
-  - [ ] styles
+  - [ ] toggle theme
+    - [x] styles
+    - [ ] functionality
+  - [x] styles
   - [ ] tests...
 - [ ] header
   - [ ] file name
