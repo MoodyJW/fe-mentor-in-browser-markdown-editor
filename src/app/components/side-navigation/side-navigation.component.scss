@@ -25,13 +25,29 @@
     }
 
     .sidenav-subheader {
-      color: var(--subdued-text);
+      color: var(--subdued);
       font-family: "Roboto", sans-serif;
       font-size: 14px;
       font-weight: 500;
       line-height: 16px;
       letter-spacing: 2px;
       margin-bottom: 29px;
+    }
+
+    .files-list-container {
+      overflow: auto;
+      margin: 26px 0;
+
+      &::-webkit-scrollbar {
+        width: 5px;
+        height: 8px;
+        background-color: transparent;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: var(--scroll-thumb);
+        border-radius: 4px;
+      }
     }
 
     .theme-toggle-container {

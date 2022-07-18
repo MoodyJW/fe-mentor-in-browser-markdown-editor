@@ -7,7 +7,9 @@
         [actionType]="'create'"
         (actionClicked)="createNewFile($event)"
       ></app-action-button>
-      <app-md-file></app-md-file>
+      <div class="files-list-container">
+        <app-md-files-list></app-md-files-list>
+      </div>
       <div class="theme-toggle-container">
         <app-theme-toggle></app-theme-toggle>
       </div>
