@@ -1,4 +1,5 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { MdFile } from 'src/app/models/md-file.model';
 
 @Component({
   selector: 'app-header',
@@ -6,6 +7,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
+  @Input() currentMdFile!: MdFile;
   @Output() toggleSidenav = new EventEmitter<boolean>();
   // not sure but need some way to only display if large screen
   // can probably do something in a service or just listen for window sizes

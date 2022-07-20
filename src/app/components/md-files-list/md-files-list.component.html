@@ -1,5 +1,5 @@
-<div class="files-list">
-  <ul *ngFor="let file of fakeData">
-    <li class="file-item"><app-md-file [mdFile]="file"></app-md-file></li>
-  </ul>
-</div>
+<ul class="files-list">
+  <li *ngFor="let file of mdFiles" class="file-item">
+    <app-md-file [mdFile]="file"></app-md-file>
+  </li>
+</ul>

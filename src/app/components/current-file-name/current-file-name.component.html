@@ -1,1 +1,14 @@
-<p>current-file-name works!</p>
+<div class="current-file-container">
+  <img src="../../../assets/icon-document.svg" alt="" />
+  <div class="current-file-name">
+    <mat-form-field>
+      <input
+        matInput
+        autocomplete="off"
+        type="text"
+        class="file-name-input"
+        [formControl]="fileNameControl"
+      />
+    </mat-form-field>
+  </div>
+</div>

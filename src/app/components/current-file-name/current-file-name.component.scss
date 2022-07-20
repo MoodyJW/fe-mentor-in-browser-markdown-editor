@@ -1,0 +1,36 @@
+.current-file-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 16px;
+  margin-left: 24px;
+  font-family: "Roboto";
+  font-size: 15px;
+
+  .current-file-name {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .file-name-input {
+      background-color: transparent;
+      border: none;
+      padding: 5px 0;
+
+      &:focus {
+        border-bottom: 1px solid;
+      }
+
+      &:hover {
+        cursor: text;
+        border-bottom: 1px solid;
+      }
+
+      &.ng-invalid {
+        border-bottom: 1px solid red;
+      }
+    }
+  }
+}

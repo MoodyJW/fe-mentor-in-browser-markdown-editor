@@ -4,7 +4,9 @@
     [actionType]="'sidenavToggle'"
     (actionClicked)="hamburgerClicked($event)"
   ></app-action-button>
-  <app-current-file-name></app-current-file-name>
+  <app-current-file-name
+    [currentMdFile]="currentMdFile"
+  ></app-current-file-name>
   <app-action-button
     [actionType]="'delete'"
     (actionClicked)="deleteCurrentFile($event)"

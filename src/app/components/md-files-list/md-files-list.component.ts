@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { MdFile } from 'src/app/models/md-file.model';
 
 export const FAKE_DATA: MdFile[] = [
@@ -109,7 +109,7 @@ export const FAKE_DATA: MdFile[] = [
   styleUrls: ['./md-files-list.component.scss'],
 })
 export class MdFilesListComponent implements OnInit {
-  fakeData: MdFile[] = FAKE_DATA;
+  @Input() mdFiles!: MdFile[];
   constructor() {}
 
   ngOnInit(): void {}
