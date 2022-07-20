@@ -7,6 +7,9 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   @Output() toggleSidenav = new EventEmitter<boolean>();
+  // not sure but need some way to only display if large screen
+  // can probably do something in a service or just listen for window sizes
+  isLargeScreen = false;
 
   constructor() {}
 

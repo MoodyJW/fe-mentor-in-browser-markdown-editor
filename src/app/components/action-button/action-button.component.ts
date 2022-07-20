@@ -10,15 +10,15 @@ export class ActionButtonComponent implements OnInit {
   @Input() actionType!: 'delete' | 'create' | 'save' | 'sidenavToggle';
   @Output() actionClicked = new EventEmitter<any>();
 
-  menuOpen = true;
+  menuIsOpen = true;
 
   constructor() {}
 
   ngOnInit(): void {}
 
   sidenavToggleClicked(): void {
-    this.menuOpen = !this.menuOpen;
-    this.actionClicked.emit(this.menuOpen);
+    this.menuIsOpen = !this.menuIsOpen;
+    this.actionClicked.emit(this.menuIsOpen);
   }
 
   deleteCurrentFile(): void {

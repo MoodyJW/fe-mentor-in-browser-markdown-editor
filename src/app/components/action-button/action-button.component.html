@@ -1,11 +1,20 @@
-<!-- get button type and screen size from parent, on click return event-->
-<!-- template switch for big orange, small orange -->
-<!-- icons small and large -->
-
 <ng-container [ngSwitch]="actionType">
   <ng-container *ngSwitchCase="'sidenavToggle'">
-    <button (click)="sidenavToggleClicked()">
-      {{ menuOpen ? "X" : "hamburder" }}
+    <button (click)="sidenavToggleClicked()" class="sidenav-toggle-button">
+      <ng-container *ngIf="!menuIsOpen">
+        <img
+          src="../../../assets/icon-menu.svg"
+          alt=""
+          [style.height.px]="14"
+        />
+      </ng-container>
+      <ng-container *ngIf="menuIsOpen">
+        <img
+          src="../../../assets/icon-close.svg"
+          alt=""
+          [style.height.px]="18"
+        />
+      </ng-container>
     </button>
   </ng-container>
   <ng-container *ngSwitchCase="'create'">
