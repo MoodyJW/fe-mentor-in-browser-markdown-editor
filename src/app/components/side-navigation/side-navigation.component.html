@@ -8,7 +8,7 @@
         (actionClicked)="createNewFile($event)"
       ></app-action-button>
       <div class="files-list-container">
-        <app-md-files-list></app-md-files-list>
+        <app-md-files-list [mdFiles]="mdFiles"></app-md-files-list>
       </div>
       <div class="theme-toggle-container">
         <app-theme-toggle></app-theme-toggle>
@@ -16,7 +16,10 @@
     </div>
   </mat-sidenav>
   <mat-sidenav-content class="sidenav-content">
-    <app-header (toggleSidenav)="menuIsOpen = $event"></app-header>
+    <app-header
+      (toggleSidenav)="menuIsOpen = $event"
+      [currentMdFile]="currentMdFile"
+    ></app-header>
     <app-preview-bar></app-preview-bar>
     <app-md-content></app-md-content>
   </mat-sidenav-content>

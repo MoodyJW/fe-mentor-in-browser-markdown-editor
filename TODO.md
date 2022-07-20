@@ -17,8 +17,8 @@
     - [x] styles
     - [ ] functionality
   - [ ] file name
-    - [ ] styles
-    - [ ] use input or service
+    - [x] styles
+    - [ ] renaming functionality
   - [ ] delete
     - [ ] styles
     - [ ] service to remove

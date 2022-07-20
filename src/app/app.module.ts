@@ -1,7 +1,9 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserModule } from '@angular/platform-browser';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { ActionButtonComponent } from './components/action-button/action-button.component';
@@ -12,10 +14,10 @@ import { DeleteModalComponent } from './components/delete-modal/delete-modal.com
 import { HeaderComponent } from './components/header/header.component';
 import { MdContentComponent } from './components/md-content/md-content.component';
 import { MdFileComponent } from './components/md-file/md-file.component';
+import { MdFilesListComponent } from './components/md-files-list/md-files-list.component';
 import { PreviewBarComponent } from './components/preview-bar/preview-bar.component';
 import { SideNavigationComponent } from './components/side-navigation/side-navigation.component';
 import { ThemeToggleComponent } from './components/theme-toggle/theme-toggle.component';
-import { MdFilesListComponent } from './components/md-files-list/md-files-list.component';
 
 @NgModule({
   declarations: [
@@ -26,15 +28,17 @@ import { MdFilesListComponent } from './components/md-files-list/md-files-list.c
     HeaderComponent,
     MdContentComponent,
     MdFileComponent,
+    MdFilesListComponent,
     PreviewBarComponent,
     SideNavigationComponent,
     ThemeToggleComponent,
-    MdFilesListComponent,
   ],
   imports: [
     AppRoutingModule,
     BrowserAnimationsModule,
     BrowserModule,
+    MatFormFieldModule,
+    MatInputModule,
     MatSidenavModule,
     ReactiveFormsModule,
   ],
