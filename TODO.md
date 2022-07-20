@@ -6,13 +6,16 @@
     - [x] styles
   - [ ] current files
     - [ ] retrieve from service either by user or all at once
-    - [ ] styles
+    - [x] styles
   - [ ] toggle theme
     - [x] styles
     - [ ] functionality
   - [x] styles
   - [ ] tests...
 - [ ] header
+  - [ ] menu toggle
+    - [x] styles
+    - [ ] functionality
   - [ ] file name
     - [ ] styles
     - [ ] use input or service

@@ -1,14 +1,16 @@
-<h1>MARKDOWN</h1>
-<app-action-button
-  [actionType]="'sidenavToggle'"
-  (actionClicked)="hamburgerClicked($event)"
-></app-action-button>
-<app-current-file-name></app-current-file-name>
-<app-action-button
-  [actionType]="'delete'"
-  (actionClicked)="deleteCurrentFile($event)"
-></app-action-button>
-<app-action-button
-  [actionType]="'save'"
-  (actionClicked)="saveCurrentFile($event)"
-></app-action-button>
+<div class="header-container">
+  <h1 *ngIf="isLargeScreen">MARKDOWN</h1>
+  <app-action-button
+    [actionType]="'sidenavToggle'"
+    (actionClicked)="hamburgerClicked($event)"
+  ></app-action-button>
+  <app-current-file-name></app-current-file-name>
+  <app-action-button
+    [actionType]="'delete'"
+    (actionClicked)="deleteCurrentFile($event)"
+  ></app-action-button>
+  <app-action-button
+    [actionType]="'save'"
+    (actionClicked)="saveCurrentFile($event)"
+  ></app-action-button>
+</div>
