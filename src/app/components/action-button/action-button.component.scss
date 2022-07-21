@@ -28,7 +28,15 @@
 
 .delete-button {
   background-color: transparent;
+}
 
-  .delete-icon {
+.save-button {
+  background-color: var(--orange);
+  height: 40px;
+  width: 40px;
+  margin-right: 8px;
+  border-radius: 4px;
+
+  .save-icon {
   }
 }
