@@ -20,10 +20,12 @@
   </ng-container>
   <ng-container *ngSwitchCase="'delete'">
     <button (click)="deleteCurrentFile()" class="delete-button">
-      <img src="../../../assets/icon-delete.svg" alt="" class="delete-icon" />
+      <img src="../../../assets/icon-delete.svg" alt="" />
     </button>
   </ng-container>
   <ng-container *ngSwitchCase="'save'">
-    <button (click)="saveCurrentFile()">save</button>
+    <button (click)="saveCurrentFile()" class="save-button">
+      <img src="../../../assets/icon-save.svg" alt="" class="save-icon" />
+    </button>
   </ng-container>
 </ng-container>
