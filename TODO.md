@@ -33,7 +33,7 @@
   - [ ] preview bar
     - [ ] toggle
       - [ ] trigger content area preview/edit
-    - [ ] styles
+    - [x] styles
   - [ ] content
     - [ ] styles
     - [ ] save preview too and just swap display
