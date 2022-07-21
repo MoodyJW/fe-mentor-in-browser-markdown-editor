@@ -1,47 +1,152 @@
-- [x] component structure
-- [x] global styles
-- [ ] sidenav
-  - [ ] new file
-    - [ ] send null data to content area
+# mobile
+
+- mobile [ ]
+  - [x] component structure
+  - [x] global styles
+  - [ ] sidenav
+    - [ ] new file
+      - [ ] send null data to content area
+      - [x] styles
+    - [ ] current files
+      - [ ] retrieve from service either by user or all at once
+      - [x] styles
+    - [ ] toggle theme
+      - [x] styles
+      - [ ] functionality
     - [x] styles
-  - [ ] current files
-    - [ ] retrieve from service either by user or all at once
+    - [ ] tests...
+  - [ ] header
+    - [ ] menu toggle
+      - [x] styles
+      - [ ] functionality
+    - [ ] file name
+      - [x] styles
+      - [ ] renaming functionality
+    - [ ] delete
+      - [x] styles
+      - [ ] service to remove
+    - [ ] save
+      - [x] styles
+      - [ ] service to save (maybe add autosave?)
     - [x] styles
-  - [ ] toggle theme
-    - [x] styles
-    - [ ] functionality
-  - [x] styles
-  - [ ] tests...
-- [ ] header
-  - [ ] menu toggle
-    - [x] styles
-    - [ ] functionality
-  - [ ] file name
-    - [x] styles
-    - [ ] renaming functionality
-  - [ ] delete
+    - [ ] tests...
+  - [ ] preview bar
+    - [ ] toggle
+      - [ ] trigger content area preview/edit
     - [ ] styles
-    - [ ] service to remove
-  - [ ] save
+  - [ ] content
     - [ ] styles
-    - [ ] service to save (maybe add autosave?)
-  - [ ] styles
-  - [ ] tests...
-- [ ] preview bar
-  - [ ] toggle
-    - [ ] trigger content area preview/edit
-  - [ ] styles
-- [ ] content
-  - [ ] styles
-  - [ ] save preview too and just swap display
-  - [ ] tests...
-- [ ] delete modal
-  - [ ] styles
-  - [ ] confirm button
-- [ ] services
-  - [ ] ngrx store?
-  - [ ] firebase to save files?
-  - [ ] user tokens or all files visible to all users?
-- [ ] markdown logic
-  - [ ] from scratch or maybe find an API/lib?
-  - [ ] maybe add buttons for various options
+    - [ ] save preview too and just swap display
+    - [ ] tests...
+  - [ ] delete modal
+    - [ ] styles
+    - [ ] confirm button
+  - [ ] services
+    - [ ] ngrx store?
+    - [ ] firebase to save files?
+    - [ ] user tokens or all files visible to all users?
+  - [ ] markdown logic
+    - [ ] from scratch or maybe find an API/lib?
+    - [ ] maybe add buttons for various options
+
+# tablet
+
+- [ ] tablet
+  - [ ] component structure
+  - [ ] global styles
+  - [ ] sidenav
+    - [ ] new file
+      - [ ] send null data to content area
+      - [ ] styles
+    - [ ] current files
+      - [ ] retrieve from service either by user or all at once
+      - [ ] styles
+    - [ ] toggle theme
+      - [ ] styles
+      - [ ] functionality
+    - [ ] styles
+    - [ ] tests...
+  - [ ] header
+    - [ ] menu toggle
+      - [ ] styles
+      - [ ] functionality
+    - [ ] file name
+      - [ ] styles
+      - [ ] renaming functionality
+    - [ ] delete
+      - [ ] styles
+      - [ ] service to remove
+    - [ ] save
+      - [ ] styles
+      - [ ] service to save (maybe add autosave?)
+    - [ ] styles
+    - [ ] tests...
+  - [ ] preview bar
+    - [ ] toggle
+      - [ ] trigger content area preview/edit
+    - [ ] styles
+  - [ ] content
+    - [ ] styles
+    - [ ] save preview too and just swap display
+    - [ ] tests...
+  - [ ] delete modal
+    - [ ] styles
+    - [ ] confirm button
+  - [ ] services
+    - [ ] ngrx store?
+    - [ ] firebase to save files?
+    - [ ] user tokens or all files visible to all users?
+  - [ ] markdown logic
+    - [ ] from scratch or maybe find an API/lib?
+    - [ ] maybe add buttons for various options
+
+# desktop
+
+- [ ] desktop
+  - [ ] component structure
+  - [ ] global styles
+  - [ ] sidenav
+    - [ ] new file
+      - [ ] send null data to content area
+      - [ ] styles
+    - [ ] current files
+      - [ ] retrieve from service either by user or all at once
+      - [ ] styles
+    - [ ] toggle theme
+      - [ ] styles
+      - [ ] functionality
+    - [ ] styles
+    - [ ] tests...
+  - [ ] header
+    - [ ] menu toggle
+      - [ ] styles
+      - [ ] functionality
+    - [ ] file name
+      - [ ] styles
+      - [ ] renaming functionality
+    - [ ] delete
+      - [ ] styles
+      - [ ] service to remove
+    - [ ] save
+      - [ ] styles
+      - [ ] service to save (maybe add autosave?)
+    - [ ] styles
+    - [ ] tests...
+  - [ ] preview bar
+    - [ ] toggle
+      - [ ] trigger content area preview/edit
+    - [ ] styles
+  - [ ] content
+    - [ ] styles
+    - [ ] save preview too and just swap display
+    - [ ] tests...
+  - [ ] delete modal
+    - [ ] styles
+    - [ ] confirm button
+  - [ ] services
+    - [ ] ngrx store?
+    - [ ] firebase to save files?
+    - [ ] user tokens or all files visible to all users?
+  - [ ] markdown logic
+    - [ ] from scratch or maybe find an API/lib?
+    - [ ] maybe add buttons for various options
