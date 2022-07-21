@@ -124,3 +124,11 @@ body {
     font-family: "Roboto Slab", serif;
   }
 }
+
+button {
+  border-width: 0;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
