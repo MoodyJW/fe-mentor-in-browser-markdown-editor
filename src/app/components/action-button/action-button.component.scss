@@ -1,11 +1,15 @@
-button {
-  border-width: 0;
-}
-
 .sidenav-toggle-button {
   background-color: var(--cancel-bg);
   height: 56px;
   width: 56px;
+
+  .hamburger-icon {
+    height: 14px;
+  }
+
+  .close-icon {
+    height: 18px;
+  }
 }
 
 .new-document-button {
@@ -19,6 +23,12 @@ button {
 
   &:hover {
     background-color: var(--orange-hover);
-    cursor: pointer;
+  }
+}
+
+.delete-button {
+  background-color: transparent;
+
+  .delete-icon {
   }
 }

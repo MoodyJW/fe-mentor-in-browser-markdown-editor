@@ -3,17 +3,13 @@
     <button (click)="sidenavToggleClicked()" class="sidenav-toggle-button">
       <ng-container *ngIf="!menuIsOpen">
         <img
+          class="hamburger-icon"
           src="../../../assets/icon-menu.svg"
           alt=""
-          [style.height.px]="14"
         />
       </ng-container>
       <ng-container *ngIf="menuIsOpen">
-        <img
-          src="../../../assets/icon-close.svg"
-          alt=""
-          [style.height.px]="18"
-        />
+        <img class="close-icon" src="../../../assets/icon-close.svg" alt="" />
       </ng-container>
     </button>
   </ng-container>
@@ -23,7 +19,9 @@
     </button>
   </ng-container>
   <ng-container *ngSwitchCase="'delete'">
-    <button (click)="deleteCurrentFile()">delete</button>
+    <button (click)="deleteCurrentFile()" class="delete-button">
+      <img src="../../../assets/icon-delete.svg" alt="" class="delete-icon" />
+    </button>
   </ng-container>
   <ng-container *ngSwitchCase="'save'">
     <button (click)="saveCurrentFile()">save</button>

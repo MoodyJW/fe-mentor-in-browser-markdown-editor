@@ -1,4 +1,11 @@
 .header-container {
   display: flex;
+  align-items: center;
   background-color: var(--toolbar-bg);
+
+  .delete-save-container {
+    margin-left: auto;
+    display: flex;
+    gap: 24px;
+  }
 }

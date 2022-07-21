@@ -7,12 +7,14 @@
   <app-current-file-name
     [currentMdFile]="currentMdFile"
   ></app-current-file-name>
-  <app-action-button
-    [actionType]="'delete'"
-    (actionClicked)="deleteCurrentFile($event)"
-  ></app-action-button>
-  <app-action-button
-    [actionType]="'save'"
-    (actionClicked)="saveCurrentFile($event)"
-  ></app-action-button>
+  <div class="delete-save-container">
+    <app-action-button
+      [actionType]="'delete'"
+      (actionClicked)="deleteCurrentFile($event)"
+    ></app-action-button>
+    <app-action-button
+      [actionType]="'save'"
+      (actionClicked)="saveCurrentFile($event)"
+    ></app-action-button>
+  </div>
 </div>
