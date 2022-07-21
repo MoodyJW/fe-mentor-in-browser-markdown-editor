@@ -1,0 +1,16 @@
+.preview-bar-container {
+  display: flex;
+  align-items: center;
+  height: 42px;
+  width: 100%;
+  background-color: var(--section-title-bar-bg);
+  font-family: "Roboto";
+  color: var(--secondary-text);
+  letter-spacing: 2px;
+  padding: 0 16px;
+
+  .preview-toggle {
+    margin-left: auto;
+    background-color: transparent;
+  }
+}

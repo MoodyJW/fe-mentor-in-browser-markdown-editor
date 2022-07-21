@@ -1,1 +1,9 @@
-<p>MARKDOWN | PREVIEW</p>
+<div class="preview-bar-container">
+  <ng-container *ngIf="!isLargeScreen">
+    <p>{{ showMd ? "MARKDOWN" : "PREVIEW" }}</p>
+    <button class="preview-toggle" (click)="toggleMdPreview()">
+      <img *ngIf="showMd" src="../../../assets/icon-show-preview.svg" alt="" />
+      <img *ngIf="!showMd" src="../../../assets/icon-hide-preview.svg" alt="" />
+    </button>
+  </ng-container>
+</div>
