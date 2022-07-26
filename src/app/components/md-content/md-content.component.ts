@@ -22,7 +22,6 @@ export class MdContentComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    console.log(this.currentMdFile.content);
     this.mdContent = this.currentMdFile.content.replace(/\n{2,}/g, (m) =>
       m.replace(/\n/g, '<br/>')
     );
@@ -30,7 +29,6 @@ export class MdContentComponent implements OnInit {
     this.mdPreview = this.converter.makeHtml(this.mdContent);
     this.mdFormControl.valueChanges.subscribe((mdText) => {
       this.mdPreview = this.converter.makeHtml(mdText);
-      console.log(this.mdPreview);
     });
   }
 }

@@ -17,7 +17,6 @@ export class PreviewBarComponent implements OnInit {
 
   toggleMdPreview(): void {
     this.showMd = !this.showMd;
-    debugger;
     this.previewToggled.emit(this.showMd);
   }
 }
