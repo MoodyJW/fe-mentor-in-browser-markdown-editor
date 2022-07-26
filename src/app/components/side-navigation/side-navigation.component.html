@@ -20,7 +20,10 @@
       (toggleSidenav)="menuIsOpen = $event"
       [currentMdFile]="currentMdFile"
     ></app-header>
-    <app-preview-bar></app-preview-bar>
-    <app-md-content></app-md-content>
+    <app-preview-bar (previewToggled)="showMd = $event"></app-preview-bar>
+    <app-md-content
+      [currentMdFile]="currentMdFile"
+      [showMd]="showMd"
+    ></app-md-content>
   </mat-sidenav-content>
 </mat-sidenav-container>

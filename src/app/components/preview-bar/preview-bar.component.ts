@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-preview-bar',
@@ -6,8 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./preview-bar.component.scss'],
 })
 export class PreviewBarComponent implements OnInit {
+  @Output() previewToggled = new EventEmitter<boolean>();
+
   isLargeScreen = false;
-  showMd = true;
+  showMd = false;
 
   constructor() {}
 
@@ -15,5 +17,6 @@ export class PreviewBarComponent implements OnInit {
 
   toggleMdPreview(): void {
     this.showMd = !this.showMd;
+    this.previewToggled.emit(this.showMd);
   }
 }
