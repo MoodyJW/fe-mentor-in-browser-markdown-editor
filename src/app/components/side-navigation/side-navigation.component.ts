@@ -10,7 +10,7 @@ export class SideNavigationComponent implements OnInit {
   menuIsOpen = true;
   mdFiles: MdFile[] = FAKE_DATA;
   currentMdFile: MdFile = FAKE_DATA[1];
-  showMd = true;
+  showMd = false;
   // probably get data here and input to children
 
   constructor() {}

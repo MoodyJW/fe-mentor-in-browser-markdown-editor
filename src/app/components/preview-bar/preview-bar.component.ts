@@ -9,7 +9,7 @@ export class PreviewBarComponent implements OnInit {
   @Output() previewToggled = new EventEmitter<boolean>();
 
   isLargeScreen = false;
-  showMd = true;
+  showMd = false;
 
   constructor() {}
 
