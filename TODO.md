@@ -35,7 +35,7 @@
       - [ ] trigger content area preview/edit
     - [x] styles
   - [ ] content
-    - [ ] styles
+    - [x] styles
     - [ ] save preview too and just swap display
     - [ ] tests...
   - [ ] delete modal
@@ -46,7 +46,7 @@
     - [ ] firebase to save files?
     - [ ] user tokens or all files visible to all users?
   - [ ] markdown logic
-    - [ ] from scratch or maybe find an API/lib?
+    - [x] from scratch or maybe find an API/lib?
     - [ ] maybe add buttons for various options
 
 # tablet
