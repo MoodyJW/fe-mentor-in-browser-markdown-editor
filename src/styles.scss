@@ -91,45 +91,48 @@ button {
 .markdown-content-container {
   font-family: "Roboto Slab";
 
-  * {
-    margin: 0 0 20px 0;
-  }
-
   h1 {
     font-size: 32px;
     line-height: 42px;
+    margin: 0 0 20px 0;
   }
 
   h2 {
     font-weight: 300;
     font-size: 28px;
     line-height: 37px;
+    margin: 0 0 20px 0;
   }
 
   h3 {
     font-size: 24px;
     line-height: 32px;
+    margin: 0 0 20px 0;
   }
 
   h4 {
     font-size: 20px;
     line-height: 26px;
+    margin: 0 0 20px 0;
   }
 
   h5 {
     font-size: 16px;
     line-height: 21px;
+    margin: 0 0 20px 0;
   }
 
   h6 {
     color: var(--orange);
     font-size: 14px;
     line-height: 18px;
+    margin: 0 0 20px 0;
   }
 
   p {
     color: var(--secondary-text);
     line-height: 24px;
+    margin: 0 0 20px 0;
   }
 
   ul {
@@ -140,6 +143,7 @@ button {
     font-size: 14px;
     line-height: 24px;
     list-style: none;
+    margin: 0 0 20px 0;
 
     li::before {
       color: var(--orange);
@@ -157,6 +161,7 @@ button {
     font-weight: 400;
     font-size: 14px;
     line-height: 24px;
+    margin: 0 0 20px 0;
   }
 
   br {
