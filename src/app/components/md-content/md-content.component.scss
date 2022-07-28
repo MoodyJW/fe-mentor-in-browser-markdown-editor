@@ -1,14 +1,17 @@
 .markdown-content-container {
-  height: 100%;
+  height: 85%;
+  overflow: scroll;
 
   .markdown-preview-container {
     padding: 16px 20px;
     white-space: normal;
+    height: 100%;
   }
 
   .markdown-input-container {
     font-family: "Roboto Mono";
     height: 100%;
+    overflow: hidden;
 
     .markdown-input {
       height: 100%;
@@ -16,6 +19,9 @@
       padding: 20px;
       border: none;
       background-color: transparent;
+      font-size: 14px;
+      line-height: 24px;
+      font-weight: 400;
       resize: none;
       outline: none;
       color: var(--secondary-text);

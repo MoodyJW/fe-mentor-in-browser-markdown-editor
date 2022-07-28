@@ -27,6 +27,7 @@ export class MdContentComponent implements OnInit {
     );
     this.mdContent = this.mdContent.replace(/<br\/>([^<])/g, '<br/>\n\n$1');
     this.mdPreview = this.converter.makeHtml(this.mdContent);
+    this.mdFormControl.patchValue(this.currentMdFile.content);
     this.mdFormControl.valueChanges.subscribe((mdText) => {
       this.mdPreview = this.converter.makeHtml(mdText);
     });
