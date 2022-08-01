@@ -19,13 +19,22 @@
     </button>
   </ng-container>
   <ng-container *ngSwitchCase="'delete'">
-    <button (click)="deleteCurrentFile()" class="delete-button">
+    <button (click)="openConfirmDeleteDialog()" class="delete-button">
       <img src="../../../assets/icon-delete.svg" alt="" />
     </button>
   </ng-container>
   <ng-container *ngSwitchCase="'save'">
     <button (click)="saveCurrentFile()" class="save-button">
       <img src="../../../assets/icon-save.svg" alt="" class="save-icon" />
+    </button>
+  </ng-container>
+  <ng-container *ngSwitchCase="'confirmDelete'">
+    <button
+      mat-dialog-close
+      (click)="deleteCurrentFile()"
+      class="confirm-delete-button"
+    >
+      Confirm & Delete
     </button>
   </ng-container>
 </ng-container>

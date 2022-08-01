@@ -1,3 +1,6 @@
+@use "@angular/material" as mat;
+@include mat.core();
+
 $breakpoints: (
   "mobile": (
     min-width: 375px,
@@ -35,6 +38,7 @@ $breakpoints: (
   --cancel-bg: hsla(216, 9%, 23%, 1);
   --scroll-thumb: hsla(216, 9%, 23%, 1);
   --section-title-bar-bg: hsla(216, 8%, 12%, 1);
+  --delete-dialog-bg: hsla(216, 8%, 12%, 1);
   --text-block-bg: hsla(220, 7%, 18%, 1);
   --divider: hsla(216, 8%, 38%, 1);
   --theme-toggle-bg: hsla(216, 8%, 38%, 1);
@@ -203,4 +207,17 @@ button {
 
 mat-sidenav-content {
   overflow: hidden !important;
+}
+
+mat-dialog-container {
+  background-color: var(--delete-dialog-bg);
+}
+
+.mat-form-field {
+  height: 56px;
+}
+
+.dialog-backdrop {
+  opacity: 0.5 !important;
+  background-color: var(--subdued);
 }

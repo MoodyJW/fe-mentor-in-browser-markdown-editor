@@ -1,5 +1,6 @@
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
+import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -37,6 +38,7 @@ import { ThemeToggleComponent } from './components/theme-toggle/theme-toggle.com
     AppRoutingModule,
     BrowserAnimationsModule,
     BrowserModule,
+    MatDialogModule,
     MatFormFieldModule,
     MatInputModule,
     MatSidenavModule,

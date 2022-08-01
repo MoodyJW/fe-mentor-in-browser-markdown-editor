@@ -1,4 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { DeleteModalComponent } from '../delete-modal/delete-modal.component';
 
 @Component({
   selector: 'app-action-button',
@@ -7,18 +9,32 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class ActionButtonComponent implements OnInit {
   // @Input() buttonText: string = '';
-  @Input() actionType!: 'delete' | 'create' | 'save' | 'sidenavToggle';
+  @Input() actionType!:
+    | 'delete'
+    | 'create'
+    | 'save'
+    | 'sidenavToggle'
+    | 'confirmDelete';
   @Output() actionClicked = new EventEmitter<any>();
 
   menuIsOpen = true;
 
-  constructor() {}
+  constructor(public deleteDialog: MatDialog) {}
 
   ngOnInit(): void {}
 
   sidenavToggleClicked(): void {
     this.menuIsOpen = !this.menuIsOpen;
     this.actionClicked.emit(this.menuIsOpen);
+  }
+
+  openConfirmDeleteDialog(): void {
+    this.deleteDialog.open(DeleteModalComponent, {
+      hasBackdrop: true,
+      disableClose: false,
+      backdropClass: 'dialog-backdrop',
+    });
+    this.actionClicked.emit('delete');
   }
 
   deleteCurrentFile(): void {
