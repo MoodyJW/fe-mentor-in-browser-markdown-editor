@@ -7,6 +7,10 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireAnalyticsModule } from '@angular/fire/compat/analytics';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { environment } from '../environments/environment';
 
 import { ActionButtonComponent } from './components/action-button/action-button.component';
 import { AppComponent } from './app.component';
@@ -39,6 +43,9 @@ import { ThemeToggleComponent } from './components/theme-toggle/theme-toggle.com
     AppRoutingModule,
     BrowserAnimationsModule,
     BrowserModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAnalyticsModule,
+    AngularFirestoreModule,
     MatButtonModule,
     MatDialogModule,
     MatFormFieldModule,
