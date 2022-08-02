@@ -25,13 +25,15 @@ $breakpoints: (
 }
 
 :root {
-  --primary-text: white;
+  --primary-text: hsla(0, 0%, 100%, 1);
   --secondary-text: hsla(222, 9%, 78%, 1);
   --subdued: hsla(216, 4%, 51%, 1);
   --header-text: hsla(0, 0%, 100%, 1);
   --primary-bg: hsla(225, 9%, 9%, 1);
   --secondary-bg: hsla(220, 7%, 18%, 1);
   --sidenav-bg: hsla(216, 8%, 12%, 1);
+  --sidenav-header: hsla(0, 0%, 100%, 1);
+  --sidenav-file-name: hsla(0, 0%, 100%, 1);
   --toolbar-bg: hsla(220, 7%, 18%, 1);
   --orange: hsla(13, 75%, 58%, 1);
   --orange-hover: hsla(21, 86%, 68%, 1);
