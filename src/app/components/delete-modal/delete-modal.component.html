@@ -3,7 +3,7 @@
   Are you sure you want to delete the ‘welcome.md’ document and its contents?
   This action cannot be reversed.
 </div>
-<div mat-dialog-actions>
+<div mat-dialog-actions class="delete-modal-actions" align="center">
   <app-action-button
     [actionType]="'confirmDelete'"
     (actionClicked)="deleteDocument($event)"

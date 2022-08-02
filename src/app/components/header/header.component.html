@@ -9,8 +9,8 @@
   ></app-current-file-name>
   <div class="delete-save-container">
     <app-action-button
-      [actionType]="'delete'"
-      (actionClicked)="deleteCurrentFile($event)"
+      [actionType]="'openConfirm'"
+      (actionClicked)="openDeleteModal()"
     ></app-action-button>
     <app-action-button
       [actionType]="'save'"

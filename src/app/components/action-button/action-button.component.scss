@@ -37,6 +37,19 @@
   margin-right: 8px;
   border-radius: 4px;
 
-  .save-icon {
+  &:hover {
+    background-color: var(--orange-hover);
+  }
+}
+
+.confirm-delete-button {
+  background-color: var(--orange);
+  color: var(--primary-text);
+  font-weight: 400;
+  font-size: 15px;
+  width: 100%;
+
+  &:hover {
+    background-color: var(--orange-hover);
   }
 }

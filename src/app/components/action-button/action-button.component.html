@@ -18,7 +18,7 @@
       + New Document
     </button>
   </ng-container>
-  <ng-container *ngSwitchCase="'delete'">
+  <ng-container *ngSwitchCase="'openConfirm'">
     <button (click)="openConfirmDeleteDialog()" class="delete-button">
       <img src="../../../assets/icon-delete.svg" alt="" />
     </button>
@@ -29,13 +29,15 @@
     </button>
   </ng-container>
   <ng-container *ngSwitchCase="'confirmDelete'">
-    <button
-      mat-dialog-close
-      mat-button
-      (click)="deleteCurrentFile()"
-      class="confirm-delete-button"
-    >
-      Confirm & Delete
-    </button>
+    <div class="confirm-delete-container">
+      <button
+        mat-dialog-close
+        mat-button
+        (click)="deleteCurrentFile()"
+        class="confirm-delete-button"
+      >
+        Confirm & Delete
+      </button>
+    </div>
   </ng-container>
 </ng-container>

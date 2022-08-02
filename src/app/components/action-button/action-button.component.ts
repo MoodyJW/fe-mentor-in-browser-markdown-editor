@@ -1,16 +1,13 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
-import { DeleteModalComponent } from '../delete-modal/delete-modal.component';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-action-button',
   templateUrl: './action-button.component.html',
   styleUrls: ['./action-button.component.scss'],
 })
-export class ActionButtonComponent implements OnInit {
-  // @Input() buttonText: string = '';
+export class ActionButtonComponent {
   @Input() actionType!:
-    | 'delete'
+    | 'openConfirm'
     | 'create'
     | 'save'
     | 'sidenavToggle'
@@ -19,22 +16,13 @@ export class ActionButtonComponent implements OnInit {
 
   menuIsOpen = true;
 
-  constructor(public deleteDialog: MatDialog) {}
-
-  ngOnInit(): void {}
-
   sidenavToggleClicked(): void {
     this.menuIsOpen = !this.menuIsOpen;
     this.actionClicked.emit(this.menuIsOpen);
   }
 
   openConfirmDeleteDialog(): void {
-    this.deleteDialog.open(DeleteModalComponent, {
-      hasBackdrop: true,
-      disableClose: false,
-      backdropClass: 'dialog-backdrop',
-    });
-    this.actionClicked.emit('delete');
+    this.actionClicked.emit('openConfirm');
   }
 
   deleteCurrentFile(): void {
