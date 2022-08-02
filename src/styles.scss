@@ -33,7 +33,7 @@ $breakpoints: (
   --secondary-bg: hsla(220, 7%, 18%, 1);
   --sidenav-bg: hsla(216, 8%, 12%, 1);
   --sidenav-header: hsla(0, 0%, 100%, 1);
-  --sidenav-file-name: hsla(0, 0%, 100%, 1);
+  --file-name: hsla(0, 0%, 100%, 1);
   --toolbar-bg: hsla(220, 7%, 18%, 1);
   --orange: hsla(13, 75%, 58%, 1);
   --orange-hover: hsla(21, 86%, 68%, 1);
@@ -52,6 +52,7 @@ $breakpoints: (
     --primary-bg: hsla(0, 0%, 100%, 1);
     --secondary-bg: hsla(0, 0%, 96%, 1);
     --section-title-bar-bg: hsla(0, 0%, 96%, 1);
+    --delete-dialog-bg: hsla(0, 0%, 100%, 1);
     --text-block-bg: hsla(0, 0%, 96%, 1);
     --divider: hsla(0, 0%, 90%, 1);
   }
