@@ -12,8 +12,15 @@
     align-items: center;
     justify-content: center;
 
+    mat-form-field {
+      display: flex;
+      align-items: center;
+      padding-top: 10px;
+    }
+
     .file-name-input {
       background-color: transparent;
+      color: var(--file-name);
       border: none;
       padding: 5px 0;
 
