@@ -10,9 +10,9 @@
     - [ ] current files
       - [ ] retrieve from service either by user or all at once
       - [x] styles
-    - [ ] toggle theme
+    - [x] toggle theme
       - [x] styles
-      - [ ] functionality
+      - [x] functionality
     - [x] styles
     - [ ] tests...
   - [ ] header
@@ -30,16 +30,16 @@
       - [ ] service to save (maybe add autosave?)
     - [x] styles
     - [ ] tests...
-  - [ ] preview bar
-    - [ ] toggle
-      - [ ] trigger content area preview/edit
+  - [x] preview bar
+    - [x] toggle
+      - [x] trigger content area preview/edit
     - [x] styles
   - [ ] content
     - [x] styles
     - [ ] save preview too and just swap display
     - [ ] tests...
   - [ ] delete modal
-    - [ ] styles
+    - [x] styles
     - [ ] confirm button
   - [ ] services
     - [ ] ngrx store?
