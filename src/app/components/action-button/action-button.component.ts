@@ -1,24 +1,28 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-action-button',
   templateUrl: './action-button.component.html',
   styleUrls: ['./action-button.component.scss'],
 })
-export class ActionButtonComponent implements OnInit {
-  // @Input() buttonText: string = '';
-  @Input() actionType!: 'delete' | 'create' | 'save' | 'sidenavToggle';
+export class ActionButtonComponent {
+  @Input() actionType!:
+    | 'openConfirm'
+    | 'create'
+    | 'save'
+    | 'sidenavToggle'
+    | 'confirmDelete';
   @Output() actionClicked = new EventEmitter<any>();
 
   menuIsOpen = true;
 
-  constructor() {}
-
-  ngOnInit(): void {}
-
   sidenavToggleClicked(): void {
     this.menuIsOpen = !this.menuIsOpen;
     this.actionClicked.emit(this.menuIsOpen);
+  }
+
+  openConfirmDeleteDialog(): void {
+    this.actionClicked.emit('openConfirm');
   }
 
   deleteCurrentFile(): void {

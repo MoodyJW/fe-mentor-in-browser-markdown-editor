@@ -1,5 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MdFile } from 'src/app/models/md-file.model';
+import { DeleteModalComponent } from '../delete-modal/delete-modal.component';
 
 @Component({
   selector: 'app-header',
@@ -13,7 +15,7 @@ export class HeaderComponent implements OnInit {
   // can probably do something in a service or just listen for window sizes
   isLargeScreen = false;
 
-  constructor() {}
+  constructor(public deleteDialog: MatDialog) {}
 
   ngOnInit(): void {}
 
@@ -22,8 +24,13 @@ export class HeaderComponent implements OnInit {
     this.toggleSidenav.emit(event);
   }
 
-  deleteCurrentFile(event: string): void {
-    console.log('delete');
+  openDeleteModal(): void {
+    this.deleteDialog.open(DeleteModalComponent, {
+      hasBackdrop: true,
+      disableClose: false,
+      backdropClass: 'dialog-backdrop',
+      data: 'send file name probably?',
+    });
   }
 
   saveCurrentFile(event: string): void {
