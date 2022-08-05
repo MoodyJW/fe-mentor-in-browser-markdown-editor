@@ -1,4 +1,8 @@
-<mat-sidenav-container class="sidenav-container" [hasBackdrop]="false">
+<mat-sidenav-container
+  *ngIf="currentMdFile"
+  class="sidenav-container"
+  [hasBackdrop]="false"
+>
   <mat-sidenav
     #sidenav
     [opened]="menuIsOpen"

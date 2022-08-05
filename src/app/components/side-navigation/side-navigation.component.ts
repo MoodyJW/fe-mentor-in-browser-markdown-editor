@@ -1,34 +1,69 @@
-import { Component, OnInit } from '@angular/core';
-import { MdFile } from 'src/app/models/md-file.model';
-import { FAKE_DATA } from 'src/app/constants/fake-data';
-import { UserService } from 'src/app/services/user.service';
-import { Observable } from 'rxjs';
-import { User } from 'src/app/app.component';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { takeUntil, first } from 'rxjs/operators';
+import { Observable, Subject } from 'rxjs';
+
+import { MdFile } from '../../models/md-file.model';
+import { WELCOME_FILE } from '../../constants/fake-data';
+import { UserService } from '../../services/user.service';
+import { User } from '../../models/user.model';
+
 @Component({
   selector: 'app-side-navigation',
   templateUrl: './side-navigation.component.html',
   styleUrls: ['./side-navigation.component.scss'],
 })
-export class SideNavigationComponent implements OnInit {
+export class SideNavigationComponent implements OnInit, OnDestroy {
   menuIsOpen = true;
-  mdFiles: MdFile[] = FAKE_DATA;
-  currentMdFile: MdFile = FAKE_DATA[1];
+  user!: User;
+  users$!: Observable<User[]>;
+  userId: string = localStorage.getItem('id') ?? '';
+  mdFiles: MdFile[] = [];
+  currentMdFile!: MdFile;
   showMd = false;
   currentUser$!: Observable<User>;
+  unsubscribe$ = new Subject();
 
   constructor(private userService: UserService) {}
 
   ngOnInit(): void {
-    // use service to get user here, will probably have to check local for id first
-    // if id, get user
-    // if no id, create user
-    // using the key as id, so might have to manually create the key
-    // then assign to id prop
-    // this.userService.getUser();
-    // after user is set, then need to set values for md files
+    if (!this.userId) {
+      this.createNewUser();
+    }
+    this.getCurrentUser();
+  }
+
+  ngOnDestroy(): void {
+    this.unsubscribe$.next();
   }
 
   createNewFile(event: any): void {
     console.log('create');
+  }
+
+  private createNewUser(): void {
+    this.userId = this.userService.createUserId();
+    localStorage.setItem('id', this.userId);
+    this.userService.createUser(this.userId);
+  }
+
+  private getCurrentUser(): void {
+    this.users$ = this.userService.getUser(this.userId);
+    this.users$
+      .pipe(first(), takeUntil(this.unsubscribe$))
+      .subscribe((userArray) => {
+        this.user = userArray[0];
+        this.mdFiles = this.user.mdFiles;
+        const mostRecentCreatedInSeconds = this.getMostRecentCreatedDate();
+        this.currentMdFile =
+          this.mdFiles.find(
+            (file) => file.createdAt.seconds === mostRecentCreatedInSeconds
+          ) ?? WELCOME_FILE;
+      });
+  }
+
+  private getMostRecentCreatedDate(): number {
+    return this.mdFiles.reduce((m, v, i) =>
+      v.createdAt.seconds > m.createdAt.seconds && i ? v : m
+    ).createdAt.seconds;
   }
 }

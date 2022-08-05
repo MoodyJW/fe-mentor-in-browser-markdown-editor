@@ -1,26 +1,28 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { Observable } from 'rxjs';
+
+import { WELCOME_FILE } from '../constants/fake-data';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
-  get userExists(): boolean {
-    // check for user local storage key
-    const userId = localStorage.getItem('id');
-    return !!userId;
-  }
-
   constructor(private firestore: AngularFirestore) {}
 
-  createUser() {
-    return 'obs from creating';
+  createUser(userId: string): void {
+    this.firestore
+      .collection('users')
+      .add({ id: userId, mdFiles: [WELCOME_FILE] });
   }
 
-  getUser() {
-    if (this.userExists) {
-      // return user here
-      return;
-    } else return this.createUser();
+  createUserId(): string {
+    return this.firestore.createId();
+  }
+
+  getUser(userId: string): Observable<any[]> {
+    return this.firestore
+      .collection('users', (ref) => ref.where('id', '==', userId))
+      .valueChanges();
   }
 }
