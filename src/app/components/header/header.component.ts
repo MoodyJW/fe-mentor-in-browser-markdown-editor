@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MdFile } from 'src/app/models/md-file.model';
 import { DeleteModalComponent } from '../delete-modal/delete-modal.component';
@@ -8,7 +8,7 @@ import { DeleteModalComponent } from '../delete-modal/delete-modal.component';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
   @Input() currentMdFile!: MdFile;
   @Output() toggleSidenav = new EventEmitter<boolean>();
   // not sure but need some way to only display if large screen
@@ -17,10 +17,7 @@ export class HeaderComponent implements OnInit {
 
   constructor(public deleteDialog: MatDialog) {}
 
-  ngOnInit(): void {}
-
   hamburgerClicked(event: boolean): void {
-    console.log('hamburger');
     this.toggleSidenav.emit(event);
   }
 

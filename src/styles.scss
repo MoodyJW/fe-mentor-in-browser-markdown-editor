@@ -224,3 +224,8 @@ mat-dialog-container {
   opacity: 0.5 !important;
   background-color: var(--subdued);
 }
+
+.mat-progress-spinner circle,
+.mat-spinner circle {
+  stroke: var(--orange);
+}

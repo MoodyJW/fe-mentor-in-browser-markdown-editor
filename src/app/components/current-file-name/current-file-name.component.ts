@@ -10,7 +10,6 @@ import { MdFile } from 'src/app/models/md-file.model';
 })
 export class CurrentFileNameComponent implements OnChanges {
   @Input() currentMdFile!: MdFile;
-
   fileNameControl: FormControl = new FormControl('', Validators.required);
 
   ngOnChanges(changes: SimpleChanges): void {

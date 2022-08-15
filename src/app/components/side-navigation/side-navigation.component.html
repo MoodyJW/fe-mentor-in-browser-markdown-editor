@@ -1,7 +1,7 @@
 <mat-sidenav-container
-  *ngIf="currentMdFile"
   class="sidenav-container"
   [hasBackdrop]="false"
+  *ngIf="!isLoading; else spinner"
 >
   <mat-sidenav
     #sidenav
@@ -16,7 +16,7 @@
         [actionType]="'create'"
         (actionClicked)="createNewFile($event)"
       ></app-action-button>
-      <div class="files-list-container">
+      <div class="files-list-container" *ngIf="mdFiles">
         <app-md-files-list [mdFiles]="mdFiles"></app-md-files-list>
       </div>
       <div class="theme-toggle-container">
@@ -27,12 +27,18 @@
   <mat-sidenav-content class="sidenav-content">
     <app-header
       (toggleSidenav)="menuIsOpen = $event"
-      [currentMdFile]="currentMdFile"
+      [currentMdFile]="currentMdFile$ | async"
     ></app-header>
     <app-preview-bar (previewToggled)="showMd = $event"></app-preview-bar>
     <app-md-content
-      [currentMdFile]="currentMdFile"
+      [currentMdFile]="currentMdFile$ | async"
       [showMd]="showMd"
     ></app-md-content>
   </mat-sidenav-content>
 </mat-sidenav-container>
+
+<ng-template #spinner>
+  <div class="spinner-container">
+    <mat-spinner [diameter]="200"></mat-spinner>
+  </div>
+</ng-template>

@@ -1,9 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { takeUntil, first } from 'rxjs/operators';
-import { Observable, Subject } from 'rxjs';
+import { takeUntil, filter } from 'rxjs/operators';
+import { Observable, of, Subject } from 'rxjs';
 
 import { MdFile } from '../../models/md-file.model';
-import { WELCOME_FILE } from '../../constants/fake-data';
+import { WELCOME_FILE } from '../../constants/default-file';
 import { UserService } from '../../services/user.service';
 import { User } from '../../models/user.model';
 
@@ -13,20 +13,25 @@ import { User } from '../../models/user.model';
   styleUrls: ['./side-navigation.component.scss'],
 })
 export class SideNavigationComponent implements OnInit, OnDestroy {
-  menuIsOpen = true;
-  user!: User;
-  users$!: Observable<User[]>;
-  userId: string = localStorage.getItem('id') ?? '';
-  mdFiles: MdFile[] = [];
-  currentMdFile!: MdFile;
   showMd = false;
-  currentUser$!: Observable<User>;
+  menuIsOpen = true;
+  isLoading = true;
+  userId: string = localStorage.getItem('markdownId') ?? '';
+  mdFiles: MdFile[] = [];
+  currentMdFile$!: Observable<MdFile>;
   unsubscribe$ = new Subject();
+
+  get mostRecentCreatedDate(): number {
+    return this.mdFiles.reduce((m, v, i) =>
+      v.createdAt.seconds > m.createdAt.seconds && i ? v : m
+    ).createdAt.seconds;
+  }
 
   constructor(private userService: UserService) {}
 
   ngOnInit(): void {
     if (!this.userId) {
+      console.log('no user id');
       this.createNewUser();
     }
     this.getCurrentUser();
@@ -37,33 +42,36 @@ export class SideNavigationComponent implements OnInit, OnDestroy {
   }
 
   createNewFile(event: any): void {
-    console.log('create');
+    console.log('create new file');
   }
 
   private createNewUser(): void {
     this.userId = this.userService.createUserId();
-    localStorage.setItem('id', this.userId);
     this.userService.createUser(this.userId);
+    console.log(this.userId, 'create new user');
   }
 
   private getCurrentUser(): void {
-    this.users$ = this.userService.getUser(this.userId);
-    this.users$
-      .pipe(first(), takeUntil(this.unsubscribe$))
-      .subscribe((userArray) => {
-        this.user = userArray[0];
-        this.mdFiles = this.user.mdFiles;
-        const mostRecentCreatedInSeconds = this.getMostRecentCreatedDate();
-        this.currentMdFile =
-          this.mdFiles.find(
-            (file) => file.createdAt.seconds === mostRecentCreatedInSeconds
-          ) ?? WELCOME_FILE;
+    const users$ = this.userService.getUsers(this.userId);
+    users$
+      .pipe(
+        filter((users) => !!users),
+        takeUntil(this.unsubscribe$)
+      )
+      .subscribe((users) => {
+        const currUser = users.find((user) => user.id === this.userId);
+        if (!currUser) return;
+        this.getMdFiles(currUser);
       });
   }
 
-  private getMostRecentCreatedDate(): number {
-    return this.mdFiles.reduce((m, v, i) =>
-      v.createdAt.seconds > m.createdAt.seconds && i ? v : m
-    ).createdAt.seconds;
+  private getMdFiles(currentUser: User): void {
+    this.mdFiles = currentUser.mdFiles;
+    const mostRecentCreatedDateInSeconds = this.mostRecentCreatedDate;
+    const curr = this.mdFiles.find(
+      (file) => file.createdAt.seconds === mostRecentCreatedDateInSeconds
+    );
+    this.currentMdFile$ = of(curr ?? WELCOME_FILE);
+    this.isLoading = false;
   }
 }
