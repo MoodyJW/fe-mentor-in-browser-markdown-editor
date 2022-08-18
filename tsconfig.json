@@ -17,7 +17,8 @@
     "target": "es2020",
     "module": "es2020",
     "lib": ["es2018", "dom"],
-    "types": ["node"]
+    "types": ["node"],
+    "strictNullChecks": false
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

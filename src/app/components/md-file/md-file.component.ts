@@ -8,8 +8,9 @@ import { MdFile } from 'src/app/models/md-file.model';
 })
 export class MdFileComponent implements OnInit {
   @Input() mdFile!: MdFile;
+  createdDate!: any;
 
-  constructor() {}
-
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.createdDate = new Date(this.mdFile.createdAt.seconds);
+  }
 }

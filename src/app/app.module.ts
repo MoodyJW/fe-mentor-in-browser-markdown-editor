@@ -1,9 +1,13 @@
+import { AngularFireAnalyticsModule } from '@angular/fire/compat/analytics';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -13,6 +17,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { CurrentFileNameComponent } from './components/current-file-name/current-file-name.component';
 import { DeleteModalComponent } from './components/delete-modal/delete-modal.component';
+import { environment } from '../environments/environment';
 import { HeaderComponent } from './components/header/header.component';
 import { MdContentComponent } from './components/md-content/md-content.component';
 import { MdFileComponent } from './components/md-file/md-file.component';
@@ -36,6 +41,9 @@ import { ThemeToggleComponent } from './components/theme-toggle/theme-toggle.com
     ThemeToggleComponent,
   ],
   imports: [
+    AngularFireAnalyticsModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     BrowserModule,
@@ -43,6 +51,7 @@ import { ThemeToggleComponent } from './components/theme-toggle/theme-toggle.com
     MatDialogModule,
     MatFormFieldModule,
     MatInputModule,
+    MatProgressSpinnerModule,
     MatSidenavModule,
     ReactiveFormsModule,
   ],

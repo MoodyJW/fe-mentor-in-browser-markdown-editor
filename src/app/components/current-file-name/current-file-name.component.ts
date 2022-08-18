@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+
 import { MdFile } from 'src/app/models/md-file.model';
 
 @Component({
@@ -7,14 +8,13 @@ import { MdFile } from 'src/app/models/md-file.model';
   templateUrl: './current-file-name.component.html',
   styleUrls: ['./current-file-name.component.scss'],
 })
-export class CurrentFileNameComponent implements OnInit {
+export class CurrentFileNameComponent implements OnChanges {
   @Input() currentMdFile!: MdFile;
-
   fileNameControl: FormControl = new FormControl('', Validators.required);
 
-  constructor() {}
-
-  ngOnInit(): void {
-    this.fileNameControl.setValue(this.currentMdFile.name);
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes?.currentMdFile?.currentValue) {
+      this.fileNameControl.setValue(this.currentMdFile.name);
+    }
   }
 }

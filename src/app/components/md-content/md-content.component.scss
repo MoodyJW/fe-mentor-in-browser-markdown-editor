@@ -1,6 +1,7 @@
 .markdown-content-container {
   height: 85%;
-  overflow: scroll;
+  overflow-y: scroll;
+  overflow-x: hidden;
 
   .markdown-preview-container {
     padding: 16px 20px;
