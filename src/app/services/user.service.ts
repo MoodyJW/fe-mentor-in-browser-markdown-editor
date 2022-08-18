@@ -12,7 +12,7 @@ export class UserService {
   constructor(private firestore: AngularFirestore) {}
 
   createUser(userId: string): void {
-    let user = {
+    const user = {
       id: userId,
       mdFiles: [WELCOME_FILE],
     };
