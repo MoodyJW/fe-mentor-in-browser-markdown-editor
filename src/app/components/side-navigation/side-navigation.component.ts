@@ -16,7 +16,7 @@ export class SideNavigationComponent implements OnInit, OnDestroy {
   showMd = false;
   menuIsOpen = true;
   isLoading = true;
-  userId: string = localStorage.getItem('markdownId') ?? '';
+  userId: string = localStorage.getItem('inBrowserMarkdownId') ?? '';
   mdFiles: MdFile[] = [];
   currentMdFile$!: Observable<MdFile>;
   unsubscribe$ = new Subject();

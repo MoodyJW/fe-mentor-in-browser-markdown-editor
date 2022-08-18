@@ -18,7 +18,7 @@
   - [ ] header
     - [ ] menu toggle
       - [x] styles
-      - [ ] functionality
+      - [x] functionality
     - [ ] file name
       - [x] styles
       - [ ] renaming functionality
@@ -42,111 +42,74 @@
     - [x] styles
     - [ ] confirm button
   - [ ] services
-    - [ ] ngrx store?
-    - [ ] firebase to save files?
-    - [ ] user tokens or all files visible to all users?
+    - [ ] file creation/retrieval
+      - [x] welcome file created for every new user
+      - [x] most recently created file is default
+      - [ ] create new file
+      - [ ] save file
+    - [x] user creation/retrieval
+      - [x] user token created using firebase id generator and saved to local storage as `inBrowserMarkdownId`
+      - [x] if the token exists, users files will be loaded from firebase
+      - [ ] add actual user creation/auth?
   - [ ] markdown logic
-    - [x] from scratch or maybe find an API/lib?
+    - [x] showdown to convert markdown to html
     - [ ] maybe add buttons for various options
 
 # tablet
 
 - [ ] tablet
-  - [ ] component structure
   - [ ] global styles
   - [ ] sidenav
     - [ ] new file
-      - [ ] send null data to content area
       - [ ] styles
     - [ ] current files
-      - [ ] retrieve from service either by user or all at once
       - [ ] styles
     - [ ] toggle theme
       - [ ] styles
-      - [ ] functionality
     - [ ] styles
-    - [ ] tests...
   - [ ] header
     - [ ] menu toggle
       - [ ] styles
-      - [ ] functionality
     - [ ] file name
       - [ ] styles
-      - [ ] renaming functionality
     - [ ] delete
       - [ ] styles
-      - [ ] service to remove
     - [ ] save
       - [ ] styles
-      - [ ] service to save (maybe add autosave?)
     - [ ] styles
-    - [ ] tests...
   - [ ] preview bar
-    - [ ] toggle
-      - [ ] trigger content area preview/edit
     - [ ] styles
   - [ ] content
     - [ ] styles
-    - [ ] save preview too and just swap display
-    - [ ] tests...
   - [ ] delete modal
     - [ ] styles
-    - [ ] confirm button
-  - [ ] services
-    - [ ] ngrx store?
-    - [ ] firebase to save files?
-    - [ ] user tokens or all files visible to all users?
-  - [ ] markdown logic
-    - [ ] from scratch or maybe find an API/lib?
-    - [ ] maybe add buttons for various options
 
 # desktop
 
 - [ ] desktop
-  - [ ] component structure
+  - [ ] tablet
   - [ ] global styles
   - [ ] sidenav
     - [ ] new file
-      - [ ] send null data to content area
       - [ ] styles
     - [ ] current files
-      - [ ] retrieve from service either by user or all at once
       - [ ] styles
     - [ ] toggle theme
       - [ ] styles
-      - [ ] functionality
     - [ ] styles
-    - [ ] tests...
   - [ ] header
     - [ ] menu toggle
       - [ ] styles
-      - [ ] functionality
     - [ ] file name
       - [ ] styles
-      - [ ] renaming functionality
     - [ ] delete
       - [ ] styles
-      - [ ] service to remove
     - [ ] save
       - [ ] styles
-      - [ ] service to save (maybe add autosave?)
     - [ ] styles
-    - [ ] tests...
   - [ ] preview bar
-    - [ ] toggle
-      - [ ] trigger content area preview/edit
     - [ ] styles
   - [ ] content
     - [ ] styles
-    - [ ] save preview too and just swap display
-    - [ ] tests...
   - [ ] delete modal
     - [ ] styles
-    - [ ] confirm button
-  - [ ] services
-    - [ ] ngrx store?
-    - [ ] firebase to save files?
-    - [ ] user tokens or all files visible to all users?
-  - [ ] markdown logic
-    - [ ] from scratch or maybe find an API/lib?
-    - [ ] maybe add buttons for various options

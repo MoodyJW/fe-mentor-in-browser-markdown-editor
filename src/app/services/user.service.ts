@@ -17,7 +17,7 @@ export class UserService {
       mdFiles: [WELCOME_FILE],
     };
     this.firestore.collection('users').doc(user.id).set(user);
-    localStorage.setItem('markdownId', user.id);
+    localStorage.setItem('inBrowserMarkdownId', user.id);
   }
 
   createUserId(): string {
