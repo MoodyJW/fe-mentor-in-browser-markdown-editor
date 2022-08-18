@@ -12,7 +12,7 @@ import { MdFile } from 'src/app/models/md-file.model';
 })
 export class MdContentComponent implements OnChanges {
   @Input() currentMdFile!: MdFile;
-  @Input() showMd!: boolean;
+  @Input() showMd: boolean = true;
 
   showdown = require('showdown');
   converter = new this.showdown.Converter();

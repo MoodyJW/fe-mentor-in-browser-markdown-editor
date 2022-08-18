@@ -6,6 +6,7 @@ import { MdFile } from '../../models/md-file.model';
 import { WELCOME_FILE } from '../../constants/default-file';
 import { UserService } from '../../services/user.service';
 import { User } from '../../models/user.model';
+import { FilesService } from 'src/app/services/files.service';
 
 @Component({
   selector: 'app-side-navigation',
@@ -13,12 +14,13 @@ import { User } from '../../models/user.model';
   styleUrls: ['./side-navigation.component.scss'],
 })
 export class SideNavigationComponent implements OnInit, OnDestroy {
-  showMd = false;
+  showMd = true;
   menuIsOpen = true;
   isLoading = true;
   userId: string = localStorage.getItem('inBrowserMarkdownId') ?? '';
   mdFiles: MdFile[] = [];
   currentMdFile$!: Observable<MdFile>;
+  currentUser!: User;
   unsubscribe$ = new Subject();
 
   get mostRecentCreatedDate(): number {
@@ -27,7 +29,10 @@ export class SideNavigationComponent implements OnInit, OnDestroy {
     ).createdAt.seconds;
   }
 
-  constructor(private userService: UserService) {}
+  constructor(
+    private userService: UserService,
+    private filesService: FilesService
+  ) {}
 
   ngOnInit(): void {
     if (!this.userId) {
@@ -41,8 +46,11 @@ export class SideNavigationComponent implements OnInit, OnDestroy {
     this.unsubscribe$.next();
   }
 
-  createNewFile(event: any): void {
-    console.log('create new file');
+  createNewFile(): void {
+    this.filesService.createNewFile(
+      this.currentUser.id,
+      this.currentUser.mdFiles
+    );
   }
 
   private createNewUser(): void {
@@ -59,9 +67,9 @@ export class SideNavigationComponent implements OnInit, OnDestroy {
         takeUntil(this.unsubscribe$)
       )
       .subscribe((users) => {
-        const currUser = users.find((user) => user.id === this.userId);
-        if (!currUser) return;
-        this.getMdFiles(currUser);
+        this.currentUser = users.find((user) => user.id === this.userId);
+        if (!this.currentUser) return;
+        this.getMdFiles(this.currentUser);
       });
   }
 

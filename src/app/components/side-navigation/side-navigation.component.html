@@ -14,7 +14,7 @@
       <h2 class="sidenav-subheader">MY DOCUMENTS</h2>
       <app-action-button
         [actionType]="'create'"
-        (actionClicked)="createNewFile($event)"
+        (actionClicked)="createNewFile()"
       ></app-action-button>
       <div class="files-list-container" *ngIf="mdFiles">
         <app-md-files-list [mdFiles]="mdFiles"></app-md-files-list>
