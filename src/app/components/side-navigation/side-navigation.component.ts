@@ -13,7 +13,7 @@ import { User } from '../../models/user.model';
   styleUrls: ['./side-navigation.component.scss'],
 })
 export class SideNavigationComponent implements OnInit, OnDestroy {
-  showMd = false;
+  showMd = true;
   menuIsOpen = true;
   isLoading = true;
   userId: string = localStorage.getItem('inBrowserMarkdownId') ?? '';
