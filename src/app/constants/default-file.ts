@@ -1,6 +1,7 @@
 import { MdFile } from '../models/md-file.model';
 
 export const WELCOME_FILE: MdFile = {
+  id: '-1',
   createdAt: { seconds: Date.now() },
   name: 'welcome.md',
   content:

@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MdFile } from 'src/app/models/md-file.model';
+import { User } from 'src/app/models/user.model';
 import { DeleteModalComponent } from '../delete-modal/delete-modal.component';
 
 @Component({
@@ -9,8 +10,10 @@ import { DeleteModalComponent } from '../delete-modal/delete-modal.component';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
-  @Input() currentMdFile!: MdFile;
   @Output() toggleSidenav = new EventEmitter<boolean>();
+
+  @Input() currentMdFile!: MdFile;
+  @Input() currentUser!: User;
   // not sure but need some way to only display if large screen
   // can probably do something in a service or just listen for window sizes
   isLargeScreen = false;
@@ -26,7 +29,10 @@ export class HeaderComponent {
       hasBackdrop: true,
       disableClose: false,
       backdropClass: 'dialog-backdrop',
-      data: 'send file name probably?',
+      data: {
+        currentUser: this.currentUser,
+        currentMdFile: this.currentMdFile,
+      },
     });
   }
 
