@@ -38,29 +38,11 @@ export class FilesService {
   saveFile(): void {}
 
   deleteCurrentFile(currentUser: User, currentMdFile: MdFile): void {
-    // need to filter out deleted file
-    // update the store mdfiles with filtered
-    // this.userDoc = afs.doc<Item>('user/david');
-    // this.tasks = this.userDoc.collection<Task>('tasks').valueChanges();
-    // getUsers(userId: string): Observable<User[]> {
-    //   return this.firestore
-    //     .collection<User>('users', (ref) => ref.where('id', '==', userId))
-    //     .valueChanges();
-    // }
-    // this.firestore.doc(`users/${userId}`).update({
-    //   mdFiles: [file, ...currentFiles],
-    // });
     const updatedFiles = currentUser.mdFiles.filter(
       (file) => file.id !== currentMdFile.id
     );
-    console.log(updatedFiles);
     this.firestore.doc(`users/${currentUser.id}`).update({
       mdFiles: updatedFiles,
     });
-    // this.firestore.doc(`users/${userId}`).update({
-    //   mdFiles: this.firestore.FieldValue.arrayRemove({
-
-    //   })
-    // })
   }
 }

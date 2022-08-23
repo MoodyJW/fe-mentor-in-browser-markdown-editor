@@ -1,5 +1,5 @@
 export interface MdFile {
-  id?: string;
+  id: string;
   createdAt: { seconds: number };
   name: string;
   content: string;
