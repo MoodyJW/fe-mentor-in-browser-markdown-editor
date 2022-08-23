@@ -9,6 +9,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 
@@ -53,6 +54,7 @@ import { ThemeToggleComponent } from './components/theme-toggle/theme-toggle.com
     MatInputModule,
     MatProgressSpinnerModule,
     MatSidenavModule,
+    MatTooltipModule,
     ReactiveFormsModule,
   ],
   providers: [],

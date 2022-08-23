@@ -29,6 +29,7 @@ export class HeaderComponent {
       hasBackdrop: true,
       disableClose: false,
       backdropClass: 'dialog-backdrop',
+      panelClass: 'dialog-panel',
       data: {
         currentUser: this.currentUser,
         currentMdFile: this.currentMdFile,

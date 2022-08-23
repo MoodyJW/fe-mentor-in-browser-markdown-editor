@@ -12,6 +12,7 @@ export class ActionButtonComponent {
     | 'save'
     | 'sidenavToggle'
     | 'confirmDelete';
+  @Input() disabled = false;
   @Output() actionClicked = new EventEmitter<any>();
 
   menuIsOpen = true;

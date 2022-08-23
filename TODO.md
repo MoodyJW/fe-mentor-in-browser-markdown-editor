@@ -8,7 +8,7 @@
       - [ ] send null data to content area
       - [x] styles
     - [ ] current files
-      - [ ] retrieve from service either by user or all at once
+      - [x] retrieve from service
       - [x] styles
     - [x] toggle theme
       - [x] styles
@@ -16,7 +16,7 @@
     - [x] styles
     - [ ] tests...
   - [ ] header
-    - [ ] menu toggle
+    - [x] menu toggle
       - [x] styles
       - [x] functionality
     - [ ] file name
@@ -24,10 +24,13 @@
       - [ ] renaming functionality
     - [ ] delete
       - [x] styles
-      - [ ] service to remove
+      - [x] service to remove
+      - [x] disable delete when no files
+      - [x] tooltip when disabled
     - [ ] save
       - [x] styles
-      - [ ] service to save (maybe add autosave?)
+      - [ ] service to save
+      - [ ] disable save when no input value
     - [x] styles
     - [ ] tests...
   - [x] preview bar
