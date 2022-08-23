@@ -225,7 +225,19 @@ mat-dialog-container {
   background-color: var(--subdued);
 }
 
+.dialog-panel .mat-dialog-container {
+  overflow: hidden;
+  min-height: 218px;
+  max-width: 343px;
+}
+
 .mat-progress-spinner circle,
 .mat-spinner circle {
   stroke: var(--orange);
+}
+
+.delete-tooltip {
+  background-color: var(--divider);
+  font-family: "Roboto Mono", monospace, sans-serif;
+  color: var(--primary-text) !important;
 }

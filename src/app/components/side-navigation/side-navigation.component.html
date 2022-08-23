@@ -27,6 +27,7 @@
   <mat-sidenav-content class="sidenav-content">
     <app-header
       (toggleSidenav)="menuIsOpen = $event"
+      [currentUser]="currentUser"
       [currentMdFile]="currentMdFile$ | async"
     ></app-header>
     <app-preview-bar (previewToggled)="showMd = $event"></app-preview-bar>

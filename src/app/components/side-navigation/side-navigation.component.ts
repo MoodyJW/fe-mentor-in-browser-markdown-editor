@@ -23,12 +23,6 @@ export class SideNavigationComponent implements OnInit, OnDestroy {
   currentUser!: User;
   unsubscribe$ = new Subject();
 
-  get mostRecentCreatedDate(): number {
-    return this.mdFiles.reduce((m, v, i) =>
-      v.createdAt.seconds > m.createdAt.seconds && i ? v : m
-    ).createdAt.seconds;
-  }
-
   constructor(
     private userService: UserService,
     private filesService: FilesService
@@ -75,11 +69,23 @@ export class SideNavigationComponent implements OnInit, OnDestroy {
 
   private getMdFiles(currentUser: User): void {
     this.mdFiles = currentUser.mdFiles;
-    const mostRecentCreatedDateInSeconds = this.mostRecentCreatedDate;
-    const curr = this.mdFiles.find(
-      (file) => file.createdAt.seconds === mostRecentCreatedDateInSeconds
-    );
-    this.currentMdFile$ = of(curr ?? WELCOME_FILE);
+    const mostRecentCreatedDateInSeconds = this.getMostRecentCreatedDate();
+    if (mostRecentCreatedDateInSeconds) {
+      const recentFile =
+        this.mdFiles.find(
+          (file) => file.createdAt.seconds === mostRecentCreatedDateInSeconds
+        ) ?? WELCOME_FILE;
+      this.currentMdFile$ = of(recentFile);
+    }
     this.isLoading = false;
+  }
+
+  private getMostRecentCreatedDate(): number {
+    if (!this.mdFiles.length) {
+      return null;
+    }
+    return this.mdFiles.reduce((m, v, i) =>
+      v.createdAt.seconds > m.createdAt.seconds && i ? v : m
+    ).createdAt.seconds;
   }
 }
