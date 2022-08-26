@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MdFile } from 'src/app/models/md-file.model';
+import { User } from 'src/app/models/user.model';
 
 @Component({
   selector: 'app-md-files-list',
@@ -7,8 +8,14 @@ import { MdFile } from 'src/app/models/md-file.model';
   styleUrls: ['./md-files-list.component.scss'],
 })
 export class MdFilesListComponent implements OnInit {
-  @Input() mdFiles!: MdFile[];
+  @Input() currentUser: User;
+  @Output() mdFileSelected = new EventEmitter<MdFile>();
+
   constructor() {}
 
   ngOnInit(): void {}
+
+  mdFileChanged(mdFile: MdFile): void {
+    this.mdFileSelected.emit(mdFile);
+  }
 }

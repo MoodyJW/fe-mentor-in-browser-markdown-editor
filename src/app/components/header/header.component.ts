@@ -11,11 +11,7 @@ import { DeleteModalComponent } from '../delete-modal/delete-modal.component';
 })
 export class HeaderComponent {
   @Output() toggleSidenav = new EventEmitter<boolean>();
-
-  @Input() currentMdFile!: MdFile;
-  @Input() currentUser!: User;
-  // not sure but need some way to only display if large screen
-  // can probably do something in a service or just listen for window sizes
+  @Input() currentUser: User;
   isLargeScreen = false;
 
   constructor(public deleteDialog: MatDialog) {}
@@ -32,7 +28,6 @@ export class HeaderComponent {
       panelClass: 'dialog-panel',
       data: {
         currentUser: this.currentUser,
-        currentMdFile: this.currentMdFile,
       },
     });
   }

@@ -16,8 +16,11 @@
         [actionType]="'create'"
         (actionClicked)="createNewFile()"
       ></app-action-button>
-      <div class="files-list-container" *ngIf="mdFiles">
-        <app-md-files-list [mdFiles]="mdFiles"></app-md-files-list>
+      <div class="files-list-container" *ngIf="currentUser.mdFiles">
+        <app-md-files-list
+          [currentUser]="currentUser"
+          (mdFileSelected)="changeCurrentMdFile($event)"
+        ></app-md-files-list>
       </div>
       <div class="theme-toggle-container">
         <app-theme-toggle></app-theme-toggle>
@@ -28,11 +31,10 @@
     <app-header
       (toggleSidenav)="menuIsOpen = $event"
       [currentUser]="currentUser"
-      [currentMdFile]="currentMdFile$ | async"
     ></app-header>
     <app-preview-bar (previewToggled)="showMd = $event"></app-preview-bar>
     <app-md-content
-      [currentMdFile]="currentMdFile$ | async"
+      [currentMdFile]="currentUser.currentMdFile"
       [showMd]="showMd"
     ></app-md-content>
   </mat-sidenav-content>

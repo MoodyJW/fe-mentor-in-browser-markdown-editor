@@ -2,15 +2,13 @@
   display: flex;
   gap: 16px;
 
-  &:hover {
-    cursor: pointer;
-    opacity: 0.75;
-    border: 1px 0px solid white;
-  }
-
   .file-icon {
     display: flex;
     align-items: center;
+
+    &.selected {
+      color: var(--orange);
+    }
   }
 
   .file-info {

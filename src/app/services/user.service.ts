@@ -15,6 +15,7 @@ export class UserService {
     const user = {
       id: userId,
       mdFiles: [WELCOME_FILE],
+      currentMdFile: WELCOME_FILE,
     };
     this.firestore.collection('users').doc(user.id).set(user);
     localStorage.setItem('inBrowserMarkdownId', user.id);
