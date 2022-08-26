@@ -18,7 +18,7 @@ export class DeleteModalComponent implements OnInit {
     public dialogRef: MatDialogRef<DeleteModalComponent>,
     private filesService: FilesService,
     @Inject(MAT_DIALOG_DATA)
-    public data: { currentUser: User; currentMdFile: MdFile }
+    public data: { currentUser: User }
   ) {}
 
   ngOnInit(): void {
@@ -26,10 +26,7 @@ export class DeleteModalComponent implements OnInit {
   }
 
   deleteDocument() {
-    this.filesService.deleteCurrentFile(
-      this.data.currentUser,
-      this.data.currentMdFile
-    );
+    this.filesService.deleteCurrentFile(this.data.currentUser);
     console.log('delete');
   }
 }

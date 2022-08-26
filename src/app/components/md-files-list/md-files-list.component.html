@@ -1,5 +1,13 @@
 <ul class="files-list">
-  <li *ngFor="let file of mdFiles" class="file-item">
-    <app-md-file [mdFile]="file"></app-md-file>
+  <li
+    *ngFor="let file of currentUser.mdFiles"
+    class="file-item"
+    [ngClass]="{ selected: currentUser.currentMdFile.id === file.id }"
+  >
+    <app-md-file
+      [mdFile]="file"
+      [fileIsSelected]="currentUser.currentMdFile.id === file.id"
+      (mdFileSelected)="mdFileChanged($event)"
+    ></app-md-file>
   </li>
 </ul>

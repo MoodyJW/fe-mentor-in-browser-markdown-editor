@@ -5,12 +5,12 @@
     (actionClicked)="hamburgerClicked($event)"
   ></app-action-button>
   <app-current-file-name
-    [currentMdFile]="currentMdFile"
+    [currentMdFile]="currentUser.currentMdFile"
   ></app-current-file-name>
   <div class="delete-save-container">
     <app-action-button
       [actionType]="'openConfirm'"
-      [disabled]="!currentMdFile"
+      [disabled]="!currentUser.currentMdFile"
       (actionClicked)="openDeleteModal()"
     ></app-action-button>
     <app-action-button

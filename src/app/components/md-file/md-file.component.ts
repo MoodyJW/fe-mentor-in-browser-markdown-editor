@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MdFile } from 'src/app/models/md-file.model';
 
 @Component({
@@ -7,8 +7,11 @@ import { MdFile } from 'src/app/models/md-file.model';
   styleUrls: ['./md-file.component.scss'],
 })
 export class MdFileComponent implements OnInit {
-  @Input() mdFile!: MdFile;
-  createdDate!: any;
+  @Input() mdFile: MdFile;
+  @Input() fileIsSelected: boolean;
+  @Output() mdFileSelected = new EventEmitter<MdFile>();
+
+  createdDate: Date;
 
   ngOnInit(): void {
     this.createdDate = new Date(this.mdFile.createdAt.seconds);
