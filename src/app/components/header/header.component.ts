@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+
 import { MdFile } from 'src/app/models/md-file.model';
 import { User } from 'src/app/models/user.model';
 import { DeleteModalComponent } from '../delete-modal/delete-modal.component';
@@ -11,8 +12,14 @@ import { DeleteModalComponent } from '../delete-modal/delete-modal.component';
 })
 export class HeaderComponent {
   @Output() toggleSidenav = new EventEmitter<boolean>();
+  @Output() saveCurrentMdFile = new EventEmitter<{
+    currentMdFile: MdFile;
+    newMdFileName: string;
+  }>();
   @Input() currentUser: User;
+
   isLargeScreen = false;
+  newMdFileName: string;
 
   constructor(public deleteDialog: MatDialog) {}
 
@@ -32,7 +39,15 @@ export class HeaderComponent {
     });
   }
 
-  saveCurrentFile(event: string): void {
-    console.log('save');
+  updateMdFileName(newMdFileName: string): void {
+    this.newMdFileName = newMdFileName;
+    console.log(this.newMdFileName);
+  }
+
+  saveMdFile(): void {
+    this.saveCurrentMdFile.emit({
+      currentMdFile: this.currentUser.currentMdFile,
+      newMdFileName: this.newMdFileName ?? this.currentUser.currentMdFile.name,
+    });
   }
 }

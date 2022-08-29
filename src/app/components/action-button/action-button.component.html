@@ -21,7 +21,7 @@
   <ng-container *ngSwitchCase="'openConfirm'">
     <div
       [matTooltip]="'Please select a document to delete'"
-      [matTooltipClass]="'delete-tooltip'"
+      [matTooltipClass]="'disabled-action-tooltip'"
       [matTooltipDisabled]="!disabled"
     >
       <button
@@ -34,9 +34,19 @@
     </div>
   </ng-container>
   <ng-container *ngSwitchCase="'save'">
-    <button (click)="saveCurrentFile()" class="save-button">
-      <img src="../../../assets/icon-save.svg" alt="" class="save-icon" />
-    </button>
+    <div
+      [matTooltip]="'A file name is required'"
+      [matTooltipClass]="'disabled-action-tooltip'"
+      [matTooltipDisabled]="!disabled"
+    >
+      <button
+        (click)="saveCurrentFile()"
+        [disabled]="disabled"
+        class="save-button"
+      >
+        <img src="../../../assets/icon-save.svg" alt="" class="save-icon" />
+      </button>
+    </div>
   </ng-container>
   <ng-container *ngSwitchCase="'confirmDelete'">
     <div class="confirm-delete-container">

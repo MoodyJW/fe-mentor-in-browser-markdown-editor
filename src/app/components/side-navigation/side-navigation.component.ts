@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { takeUntil, filter } from 'rxjs/operators';
 import { Observable, Subject } from 'rxjs';
 
-import { MdFile } from '../../models/md-file.model';
+import { MdFile, NewMdFileData } from '../../models/md-file.model';
 import { UserService } from '../../services/user.service';
 import { User } from '../../models/user.model';
 import { FilesService } from 'src/app/services/files.service';
@@ -43,8 +43,30 @@ export class SideNavigationComponent implements OnInit, OnDestroy {
     );
   }
 
-  changeCurrentMdFile(mdFile: MdFile): void {
-    this.filesService.updateCurrentFile(this.userId, mdFile);
+  switchCurrentMdFile(mdFile: MdFile): void {
+    this.filesService.changeCurrentFile(this.userId, mdFile);
+  }
+
+  saveCurrentMdFile(newMdFileData: NewMdFileData): void {
+    const updatedMdFiles = this.currentUser.mdFiles.map((mdFile: MdFile) =>
+      mdFile.id === newMdFileData.currentMdFile.id
+        ? {
+            ...newMdFileData.currentMdFile,
+            name: newMdFileData.newMdFileName ?? mdFile.name,
+            content: newMdFileData.currentMdFile.content,
+          }
+        : mdFile
+    );
+    const updatedCurrentUser = {
+      ...this.currentUser,
+      currentMdFile: {
+        ...newMdFileData.currentMdFile,
+        name:
+          newMdFileData.newMdFileName ?? this.currentUser.currentMdFile.name,
+      },
+      mdFiles: updatedMdFiles,
+    };
+    this.filesService.saveFile(updatedCurrentUser);
   }
 
   private createNewUser(): void {

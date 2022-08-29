@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
+import { take } from 'rxjs/operators';
 import { MdFile } from '../models/md-file.model';
 import { User } from '../models/user.model';
 
@@ -10,30 +12,35 @@ import { User } from '../models/user.model';
 export class FilesService {
   unsubscribe$ = new Subject();
 
-  constructor(private firestore: AngularFirestore) {}
+  constructor(private firestore: AngularFirestore, public http: HttpClient) {}
 
   createNewFile(userId: string, currentFiles: MdFile[]): void {
-    const untitled = currentFiles.filter((file) =>
-      file.name.startsWith('untitled-document')
-    );
-    const newFileName = untitled.length
-      ? `untitled-document(${untitled.length}).md`
-      : `untitled-document.md`;
-    const file = {
-      id: this.firestore.createId(),
-      createdAt: { seconds: Date.now() },
-      name: newFileName,
-      content: '',
-    };
-    this.firestore.doc(`users/${userId}`).update({
-      mdFiles: [file, ...currentFiles],
-      currentMdFile: file,
+    this.createRandomFileName()
+      .pipe(take(1))
+      .subscribe((words: string[]) => {
+        const newFileName = `${words[0]}-${
+          words[1]
+        }-${this.generateRandomNumber(1, 1936)}`;
+        const newFile = {
+          id: this.firestore.createId(),
+          createdAt: { seconds: Date.now() },
+          name: newFileName,
+          content: '',
+        };
+        this.firestore.doc(`users/${userId}`).update({
+          mdFiles: [newFile, ...currentFiles],
+          currentMdFile: newFile,
+        });
+      });
+  }
+
+  saveFile(currentUser: User): void {
+    this.firestore.doc(`users/${currentUser.id}`).update({
+      ...currentUser,
     });
   }
 
-  saveFile(): void {}
-
-  updateCurrentFile(userId: string, currentMdFile: MdFile): void {
+  changeCurrentFile(userId: string, currentMdFile: MdFile): void {
     this.firestore.doc(`users/${userId}`).update({
       currentMdFile: currentMdFile,
     });
@@ -44,8 +51,21 @@ export class FilesService {
       (file) => file.id !== currentUser.currentMdFile.id
     );
     this.firestore.doc(`users/${currentUser.id}`).update({
-      mdFiles: updatedFiles,
-      currentMdFile: updatedFiles[0],
+      mdFiles: updatedFiles ?? [],
+      currentMdFile: updatedFiles[0] ?? null,
     });
+  }
+
+  private createRandomFileName(): Observable<any> {
+    return this.http.get(
+      `https://random-word-api.herokuapp.com/word?number=2&length=${this.generateRandomNumber(
+        1,
+        10
+      )}`
+    );
+  }
+
+  private generateRandomNumber(min: number, max: number): number {
+    return Math.floor(Math.random() * min + max);
   }
 }

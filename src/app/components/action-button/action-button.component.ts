@@ -6,7 +6,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrls: ['./action-button.component.scss'],
 })
 export class ActionButtonComponent {
-  @Input() actionType!:
+  @Input() actionType:
     | 'openConfirm'
     | 'create'
     | 'save'

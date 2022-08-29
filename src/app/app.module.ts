@@ -3,6 +3,8 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -11,7 +13,6 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
 
 import { ActionButtonComponent } from './components/action-button/action-button.component';
 import { AppComponent } from './app.component';
@@ -48,6 +49,8 @@ import { ThemeToggleComponent } from './components/theme-toggle/theme-toggle.com
     AppRoutingModule,
     BrowserAnimationsModule,
     BrowserModule,
+    FormsModule,
+    HttpClientModule,
     MatButtonModule,
     MatDialogModule,
     MatFormFieldModule,

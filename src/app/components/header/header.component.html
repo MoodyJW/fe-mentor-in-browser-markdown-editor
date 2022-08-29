@@ -5,7 +5,8 @@
     (actionClicked)="hamburgerClicked($event)"
   ></app-action-button>
   <app-current-file-name
-    [currentMdFile]="currentUser.currentMdFile"
+    [currentMdFile]="currentUser.currentMdFile ?? null"
+    (mdFileNameChanged)="updateMdFileName($event)"
   ></app-current-file-name>
   <div class="delete-save-container">
     <app-action-button
@@ -15,7 +16,8 @@
     ></app-action-button>
     <app-action-button
       [actionType]="'save'"
-      (actionClicked)="saveCurrentFile($event)"
+      [disabled]="!newMdFileName"
+      (actionClicked)="saveMdFile()"
     ></app-action-button>
   </div>
 </div>

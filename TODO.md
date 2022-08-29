@@ -3,60 +3,55 @@
 - mobile [ ]
   - [x] component structure
   - [x] global styles
-  - [ ] sidenav
-    - [ ] new file
-      - [ ] send null data to content area
+  - [x] sidenav
+    - [x] new file
+      - [x] send null data to content area
       - [x] styles
-    - [ ] current files
+    - [x] current files
       - [x] retrieve from service
       - [x] styles
     - [x] toggle theme
       - [x] styles
       - [x] functionality
     - [x] styles
-    - [ ] tests...
   - [ ] header
     - [x] menu toggle
       - [x] styles
       - [x] functionality
-    - [ ] file name
+    - [x] file name
       - [x] styles
-      - [ ] renaming functionality
-    - [ ] delete
+      - [x] renaming functionality
+    - [x] delete
       - [x] styles
       - [x] service to remove
       - [x] disable delete when no files
       - [x] tooltip when disabled
     - [ ] save
       - [x] styles
-      - [ ] service to save
-      - [ ] disable save when no input value
+      - [x] service to save
+      - [x] disable save when no input value
     - [x] styles
-    - [ ] tests...
   - [x] preview bar
     - [x] toggle
       - [x] trigger content area preview/edit
     - [x] styles
-  - [ ] content
+  - [x] content
     - [x] styles
-    - [ ] save preview too and just swap display
-    - [ ] tests...
-  - [ ] delete modal
+    - [x] save preview too and just swap display
+  - [x] delete modal
     - [x] styles
-    - [ ] confirm button
-  - [ ] services
-    - [ ] file creation/retrieval
+    - [x] confirm button
+  - [x] services
+    - [x] file creation/retrieval
       - [x] welcome file created for every new user
       - [x] most recently created file is default
-      - [ ] create new file
-      - [ ] save file
+      - [x] create new file
+      - [x] save file
     - [x] user creation/retrieval
       - [x] user token created using firebase id generator and saved to local storage as `inBrowserMarkdownId`
       - [x] if the token exists, users files will be loaded from firebase
-      - [ ] add actual user creation/auth?
-  - [ ] markdown logic
+  - [x] markdown logic
     - [x] showdown to convert markdown to html
-    - [ ] maybe add buttons for various options
 
 # tablet
 
@@ -116,3 +111,17 @@
     - [ ] styles
   - [ ] delete modal
     - [ ] styles
+
+# bugs/refactor
+
+- [x] improve file name generation to avoid duplicate file names _fixed by changing to random words/number for files_
+  - [x] if user deletes files out of order the file name can be repeated
+
+# improvement ideas
+
+- [ ] buttons to perform style changes like italics, bold, etc
+- [ ] snackbar notifications for actions
+- [ ] add actual user creation/auth
+- [ ] save most recent deleted so user can undo or maybe add timer for undo
+- [ ] could add search, sorting, etc for file list
+- [ ] write some tests...
