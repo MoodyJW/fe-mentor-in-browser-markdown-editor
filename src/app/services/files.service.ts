@@ -66,6 +66,6 @@ export class FilesService {
   }
 
   private generateRandomNumber(min: number, max: number): number {
-    return Math.floor(Math.random() * min + max);
+    return Math.floor(Math.random() * max + min);
   }
 }
