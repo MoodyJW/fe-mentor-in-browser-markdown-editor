@@ -236,7 +236,7 @@ mat-dialog-container {
   stroke: var(--orange);
 }
 
-.delete-tooltip {
+.disabled-action-tooltip {
   background-color: var(--divider);
   font-family: "Roboto Mono", monospace, sans-serif;
   color: var(--primary-text) !important;

@@ -3,7 +3,7 @@
 - mobile [ ]
   - [x] component structure
   - [x] global styles
-  - [ ] sidenav
+  - [x] sidenav
     - [x] new file
       - [x] send null data to content area
       - [x] styles
@@ -29,7 +29,7 @@
     - [ ] save
       - [x] styles
       - [x] service to save
-      - [ ] disable save when no input value
+      - [x] disable save when no input value
     - [x] styles
   - [x] preview bar
     - [x] toggle
@@ -120,6 +120,7 @@
 # improvement ideas
 
 - [ ] buttons to perform style changes like italics, bold, etc
+- [ ] snackbar notifications for actions
 - [ ] add actual user creation/auth
 - [ ] save most recent deleted so user can undo or maybe add timer for undo
 - [ ] could add search, sorting, etc for file list

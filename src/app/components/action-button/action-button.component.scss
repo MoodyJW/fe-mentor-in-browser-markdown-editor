@@ -45,6 +45,16 @@
   &:hover {
     background-color: var(--orange-hover);
   }
+
+  &:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    background-color: var(--orange);
+
+    &:hover {
+      background-color: var(--orange);
+    }
+  }
 }
 
 .confirm-delete-button {

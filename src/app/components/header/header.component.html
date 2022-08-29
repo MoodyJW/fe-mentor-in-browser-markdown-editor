@@ -6,7 +6,7 @@
   ></app-action-button>
   <app-current-file-name
     [currentMdFile]="currentUser.currentMdFile ?? null"
-    (mdFileNameChanged)="newMdFileName = $event"
+    (mdFileNameChanged)="updateMdFileName($event)"
   ></app-current-file-name>
   <div class="delete-save-container">
     <app-action-button
@@ -16,6 +16,7 @@
     ></app-action-button>
     <app-action-button
       [actionType]="'save'"
+      [disabled]="!newMdFileName"
       (actionClicked)="saveMdFile()"
     ></app-action-button>
   </div>

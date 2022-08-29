@@ -39,6 +39,11 @@ export class HeaderComponent {
     });
   }
 
+  updateMdFileName(newMdFileName: string): void {
+    this.newMdFileName = newMdFileName;
+    console.log(this.newMdFileName);
+  }
+
   saveMdFile(): void {
     this.saveCurrentMdFile.emit({
       currentMdFile: this.currentUser.currentMdFile,

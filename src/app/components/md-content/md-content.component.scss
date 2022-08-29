@@ -1,6 +1,6 @@
 .markdown-content-container {
   height: 85%;
-  overflow-y: scroll;
+  overflow-y: auto;
   overflow-x: hidden;
 
   .markdown-preview-container {
@@ -28,4 +28,11 @@
       color: var(--secondary-text);
     }
   }
+}
+
+.footer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
