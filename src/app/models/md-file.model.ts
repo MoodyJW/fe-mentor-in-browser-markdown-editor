@@ -4,3 +4,8 @@ export interface MdFile {
   name: string;
   content: string;
 }
+
+export interface NewMdFileData {
+  currentMdFile: MdFile;
+  newMdFileName: string;
+}

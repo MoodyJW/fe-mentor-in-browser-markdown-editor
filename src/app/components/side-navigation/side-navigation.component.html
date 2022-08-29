@@ -19,7 +19,7 @@
       <div class="files-list-container" *ngIf="currentUser.mdFiles">
         <app-md-files-list
           [currentUser]="currentUser"
-          (mdFileSelected)="changeCurrentMdFile($event)"
+          (mdFileSelected)="switchCurrentMdFile($event)"
         ></app-md-files-list>
       </div>
       <div class="theme-toggle-container">
@@ -29,13 +29,15 @@
   </mat-sidenav>
   <mat-sidenav-content class="sidenav-content">
     <app-header
-      (toggleSidenav)="menuIsOpen = $event"
       [currentUser]="currentUser"
+      (toggleSidenav)="menuIsOpen = $event"
+      (saveCurrentMdFile)="saveCurrentMdFile($event)"
     ></app-header>
     <app-preview-bar (previewToggled)="showMd = $event"></app-preview-bar>
     <app-md-content
       [currentMdFile]="currentUser.currentMdFile"
       [showMd]="showMd"
+      (mdFileContentChanged)="currentUser.currentMdFile.content = $event"
     ></app-md-content>
   </mat-sidenav-content>
 </mat-sidenav-container>
