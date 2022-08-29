@@ -18,8 +18,9 @@ export class FilesService {
     this.createRandomFileName()
       .pipe(take(1))
       .subscribe((words: string[]) => {
-        const randomNumber = Math.floor(Math.random() * 1936);
-        const newFileName = `${words[0]}-${words[1]}-${randomNumber}`;
+        const newFileName = `${words[0]}-${
+          words[1]
+        }-${this.generateRandomNumber(1, 1936)}`;
         const newFile = {
           id: this.firestore.createId(),
           createdAt: { seconds: Date.now() },
@@ -34,10 +35,6 @@ export class FilesService {
   }
 
   saveFile(currentUser: User): void {
-    // PROBABLY JUST DO AN UPDATE ON THE FIRESTORE DOC
-    // WOULD NEED TO UPDATE BOTH CURRENT FILE
-    // AND THE FILE LIST
-    // WORKS ALMOST EXACTLY LIKE DELETING WOULD, I GUESS
     this.firestore.doc(`users/${currentUser.id}`).update({
       ...currentUser,
     });
@@ -60,9 +57,15 @@ export class FilesService {
   }
 
   private createRandomFileName(): Observable<any> {
-    const randomWordLength = Math.floor(Math.random() * 10 + 1);
     return this.http.get(
-      `https://random-word-api.herokuapp.com/word?number=2&length=${randomWordLength}`
+      `https://random-word-api.herokuapp.com/word?number=2&length=${this.generateRandomNumber(
+        1,
+        10
+      )}`
     );
+  }
+
+  private generateRandomNumber(min: number, max: number): number {
+    return Math.floor(Math.random() * min + max);
   }
 }

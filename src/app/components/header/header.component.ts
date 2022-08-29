@@ -1,11 +1,6 @@
-import {
-  Component,
-  EventEmitter,
-  Input,
-  Output,
-  SimpleChanges,
-} from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+
 import { MdFile } from 'src/app/models/md-file.model';
 import { User } from 'src/app/models/user.model';
 import { DeleteModalComponent } from '../delete-modal/delete-modal.component';
@@ -27,10 +22,6 @@ export class HeaderComponent {
   newMdFileName: string;
 
   constructor(public deleteDialog: MatDialog) {}
-
-  ngOnChanges(changes: SimpleChanges) {
-    // console.log(changes.currentUser.currentValue, 'header changes');
-  }
 
   hamburgerClicked(event: boolean): void {
     this.toggleSidenav.emit(event);

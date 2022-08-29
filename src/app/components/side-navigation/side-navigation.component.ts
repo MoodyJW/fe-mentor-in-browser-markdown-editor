@@ -66,10 +66,7 @@ export class SideNavigationComponent implements OnInit, OnDestroy {
       },
       mdFiles: updatedMdFiles,
     };
-    // this.currentUser = updatedCurrentUser;
     this.filesService.saveFile(updatedCurrentUser);
-    debugger;
-    // send to service, but also need to get content and update that on save
   }
 
   private createNewUser(): void {

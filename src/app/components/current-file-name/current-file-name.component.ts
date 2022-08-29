@@ -10,10 +10,9 @@ import {
 } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { Subject } from 'rxjs';
-import { takeUntil, distinctUntilChanged, debounceTime } from 'rxjs/operators';
+import { takeUntil, distinctUntilChanged } from 'rxjs/operators';
 
 import { MdFile } from 'src/app/models/md-file.model';
-import { DEFAULT_DEBOUNCE } from 'src/app/constants/default-values';
 
 @Component({
   selector: 'app-current-file-name',

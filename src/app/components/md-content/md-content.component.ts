@@ -3,7 +3,6 @@ import {
   EventEmitter,
   Input,
   OnChanges,
-  OnInit,
   Output,
   SimpleChanges,
 } from '@angular/core';
@@ -21,9 +20,9 @@ import { DEFAULT_DEBOUNCE } from 'src/app/constants/default-values';
   templateUrl: './md-content.component.html',
   styleUrls: ['./md-content.component.scss'],
 })
-export class MdContentComponent implements OnChanges, OnInit {
+export class MdContentComponent implements OnChanges {
   @Output() mdFileContentChanged = new EventEmitter<string>();
-  @Input() currentMdFile!: MdFile;
+  @Input() currentMdFile: MdFile;
   @Input() showMd: boolean = true;
 
   showdown = require('showdown');
@@ -32,10 +31,6 @@ export class MdContentComponent implements OnChanges, OnInit {
   mdFormControl = new FormControl('');
   mdPreview = '';
   unsubscribe$ = new Subject();
-
-  ngOnInit(): void {
-    // this.mdFormControl.valueChanges()
-  }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (!changes?.currentMdFile?.currentValue) return;
