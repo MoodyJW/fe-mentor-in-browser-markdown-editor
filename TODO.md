@@ -1,6 +1,6 @@
 # mobile
 
-- mobile [ ]
+- mobile [x]
   - [x] component structure
   - [x] global styles
   - [x] sidenav
@@ -14,7 +14,7 @@
       - [x] styles
       - [x] functionality
     - [x] styles
-  - [ ] header
+  - [x] header
     - [x] menu toggle
       - [x] styles
       - [x] functionality
@@ -26,7 +26,7 @@
       - [x] service to remove
       - [x] disable delete when no files
       - [x] tooltip when disabled
-    - [ ] save
+    - [x] save
       - [x] styles
       - [x] service to save
       - [x] disable save when no input value

@@ -1,6 +1,7 @@
 import {
   Component,
   EventEmitter,
+  HostListener,
   Input,
   OnChanges,
   Output,
@@ -31,6 +32,16 @@ export class MdContentComponent implements OnChanges {
   mdFormControl = new FormControl('');
   mdPreview = '';
   unsubscribe$ = new Subject();
+  isMobileScreen = false;
+
+  @HostListener('window:resize', ['$event'])
+  onResize() {
+    this.isMobileScreen = window.innerWidth < 600;
+  }
+
+  ngOnInit() {
+    this.isMobileScreen = window.innerWidth < 600;
+  }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (!changes?.currentMdFile?.currentValue) return;

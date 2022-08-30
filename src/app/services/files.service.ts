@@ -20,7 +20,7 @@ export class FilesService {
       .subscribe((words: string[]) => {
         const newFileName = `${words[0]}-${
           words[1]
-        }-${this.generateRandomNumber(1, 1936)}`;
+        }-${this.generateRandomNumber(1, 99)}`;
         const newFile = {
           id: this.firestore.createId(),
           createdAt: { seconds: Date.now() },
