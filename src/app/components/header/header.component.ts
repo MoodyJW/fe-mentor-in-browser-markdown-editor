@@ -1,4 +1,11 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  HostListener,
+  Input,
+  OnInit,
+  Output,
+} from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 
 import { MdFile } from 'src/app/models/md-file.model';
@@ -10,7 +17,7 @@ import { DeleteModalComponent } from '../delete-modal/delete-modal.component';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
   @Output() toggleSidenav = new EventEmitter<boolean>();
   @Output() saveCurrentMdFile = new EventEmitter<{
     currentMdFile: MdFile;
@@ -18,10 +25,21 @@ export class HeaderComponent {
   }>();
   @Input() currentUser: User;
 
-  isLargeScreen = false;
   newMdFileName: string;
+  isMobileScreen = false;
+  isLargeScreen = false;
 
   constructor(public deleteDialog: MatDialog) {}
+
+  @HostListener('window:resize', ['$event'])
+  onResize() {
+    this.isMobileScreen = window.innerWidth < 600;
+    this.isLargeScreen = window.innerWidth > 1375;
+  }
+
+  ngOnInit(): void {
+    this.isMobileScreen = window.innerWidth < 600;
+  }
 
   hamburgerClicked(event: boolean): void {
     this.toggleSidenav.emit(event);
@@ -41,7 +59,6 @@ export class HeaderComponent {
 
   updateMdFileName(newMdFileName: string): void {
     this.newMdFileName = newMdFileName;
-    console.log(this.newMdFileName);
   }
 
   saveMdFile(): void {

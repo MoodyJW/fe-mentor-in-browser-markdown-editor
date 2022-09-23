@@ -27,7 +27,7 @@ $breakpoints: (
 :root {
   --primary-text: hsla(0, 0%, 100%, 1);
   --secondary-text: hsla(222, 9%, 78%, 1);
-  --subdued: hsla(216, 4%, 51%, 1);
+  --subdued: hsla(213, 4%, 51%, 1);
   --header-text: hsla(0, 0%, 100%, 1);
   --primary-bg: hsla(225, 9%, 9%, 1);
   --secondary-bg: hsla(220, 7%, 18%, 1);
@@ -240,4 +240,9 @@ mat-dialog-container {
   background-color: var(--divider);
   font-family: "Roboto Mono", monospace, sans-serif;
   color: var(--primary-text) !important;
+}
+
+.mat-form-field-label-wrapper {
+  top: -0.4em;
+  color: var(--subdued);
 }

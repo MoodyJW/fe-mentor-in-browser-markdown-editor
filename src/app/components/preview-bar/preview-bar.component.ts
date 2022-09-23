@@ -1,19 +1,15 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-preview-bar',
   templateUrl: './preview-bar.component.html',
   styleUrls: ['./preview-bar.component.scss'],
 })
-export class PreviewBarComponent implements OnInit {
+export class PreviewBarComponent {
   @Output() previewToggled = new EventEmitter<boolean>();
 
   isLargeScreen = false;
   showMd = true;
-
-  constructor() {}
-
-  ngOnInit(): void {}
 
   toggleMdPreview(): void {
     this.showMd = !this.showMd;

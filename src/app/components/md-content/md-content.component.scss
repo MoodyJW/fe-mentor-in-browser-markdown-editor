@@ -10,10 +10,6 @@
   }
 
   .markdown-input-container {
-    font-family: "Roboto Mono";
-    height: 100%;
-    overflow: hidden;
-
     .markdown-input {
       height: 100%;
       width: 100%;
@@ -28,4 +24,32 @@
       color: var(--secondary-text);
     }
   }
+}
+
+.markdown-large-screen-container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+
+  .markdown-input-container {
+    width: 50%;
+    height: 100%;
+  }
+
+  .markdown-preview-container {
+    width: 50%;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    &.preview-only {
+      width: 100%;
+    }
+  }
+}
+
+.markdown-input-container {
+  font-family: "Roboto Mono";
+  height: 100%;
+  overflow: hidden;
 }

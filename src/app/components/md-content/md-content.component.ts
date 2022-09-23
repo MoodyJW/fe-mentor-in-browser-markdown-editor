@@ -1,8 +1,11 @@
 import {
   Component,
   EventEmitter,
+  HostListener,
   Input,
   OnChanges,
+  OnDestroy,
+  OnInit,
   Output,
   SimpleChanges,
 } from '@angular/core';
@@ -20,7 +23,7 @@ import { DEFAULT_DEBOUNCE } from 'src/app/constants/default-values';
   templateUrl: './md-content.component.html',
   styleUrls: ['./md-content.component.scss'],
 })
-export class MdContentComponent implements OnChanges {
+export class MdContentComponent implements OnChanges, OnInit, OnDestroy {
   @Output() mdFileContentChanged = new EventEmitter<string>();
   @Input() currentMdFile: MdFile;
   @Input() showMd: boolean = true;
@@ -31,6 +34,16 @@ export class MdContentComponent implements OnChanges {
   mdFormControl = new FormControl('');
   mdPreview = '';
   unsubscribe$ = new Subject();
+  isMobileScreen = false;
+
+  @HostListener('window:resize', ['$event'])
+  onResize() {
+    this.isMobileScreen = window.innerWidth < 600;
+  }
+
+  ngOnInit() {
+    this.isMobileScreen = window.innerWidth < 600;
+  }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (!changes?.currentMdFile?.currentValue) return;

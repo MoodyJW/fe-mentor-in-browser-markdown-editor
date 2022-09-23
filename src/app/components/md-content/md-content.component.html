@@ -1,8 +1,29 @@
 <div class="markdown-content-container">
-  <div *ngIf="showMd; else showPreview" class="markdown-input-container">
-    <textarea class="markdown-input" [formControl]="mdFormControl"></textarea>
-  </div>
-  <ng-template #showPreview>
-    <div class="markdown-preview-container" [innerHtml]="mdPreview"></div>
+  <ng-container *ngIf="isMobileScreen; else largeScreen">
+    <div *ngIf="showMd; else showPreview" class="markdown-input-container">
+      <textarea class="markdown-input" [formControl]="mdFormControl"></textarea>
+    </div>
+    <ng-template #showPreview>
+      <div class="markdown-preview-container" [innerHtml]="mdPreview"></div>
+    </ng-template>
+  </ng-container>
+  <ng-template #largeScreen>
+    <div class="markdown-large-screen-container">
+      <ng-container *ngIf="showMd; else showLargePreview">
+        <div class="markdown-input-container">
+          <textarea
+            class="markdown-input"
+            [formControl]="mdFormControl"
+          ></textarea>
+        </div>
+        <div class="markdown-preview-container" [innerHtml]="mdPreview"></div>
+      </ng-container>
+      <ng-template #showLargePreview>
+        <div
+          class="markdown-preview-container preview-only"
+          [innerHtml]="mdPreview"
+        ></div>
+      </ng-template>
+    </div>
   </ng-template>
 </div>

@@ -55,6 +55,15 @@
       background-color: var(--orange);
     }
   }
+
+  &.large {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    color: var(--white);
+    width: 152px;
+  }
 }
 
 .confirm-delete-button {

@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit, Renderer2 } from '@angular/core';
+import { Component, Inject, OnDestroy, OnInit, Renderer2 } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { FormControl } from '@angular/forms';
 import { Subject } from 'rxjs';
@@ -9,7 +9,7 @@ import { takeUntil } from 'rxjs/operators';
   templateUrl: './theme-toggle.component.html',
   styleUrls: ['./theme-toggle.component.scss'],
 })
-export class ThemeToggleComponent implements OnInit {
+export class ThemeToggleComponent implements OnInit, OnDestroy {
   currentTheme = window.matchMedia('(prefers-color-scheme: light)').matches
     ? 'light-theme'
     : 'dark-theme';
