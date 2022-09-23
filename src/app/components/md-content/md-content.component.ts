@@ -4,6 +4,8 @@ import {
   HostListener,
   Input,
   OnChanges,
+  OnDestroy,
+  OnInit,
   Output,
   SimpleChanges,
 } from '@angular/core';
@@ -21,7 +23,7 @@ import { DEFAULT_DEBOUNCE } from 'src/app/constants/default-values';
   templateUrl: './md-content.component.html',
   styleUrls: ['./md-content.component.scss'],
 })
-export class MdContentComponent implements OnChanges {
+export class MdContentComponent implements OnChanges, OnInit, OnDestroy {
   @Output() mdFileContentChanged = new EventEmitter<string>();
   @Input() currentMdFile: MdFile;
   @Input() showMd: boolean = true;

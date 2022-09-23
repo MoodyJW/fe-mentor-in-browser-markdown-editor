@@ -20,8 +20,9 @@ import { MdFile } from 'src/app/models/md-file.model';
   styleUrls: ['./current-file-name.component.scss'],
 })
 export class CurrentFileNameComponent implements OnInit, OnDestroy, OnChanges {
-  @Input() currentMdFile: MdFile;
   @Output() mdFileNameChanged = new EventEmitter<string>();
+  @Input() currentMdFile: MdFile;
+  @Input() isMobileScreen: boolean;
   mdFileNameControl: FormControl = new FormControl('', Validators.required);
   unsubscribe$ = new Subject();
 
@@ -32,16 +33,12 @@ export class CurrentFileNameComponent implements OnInit, OnDestroy, OnChanges {
       .pipe(distinctUntilChanged(), takeUntil(this.unsubscribe$))
       .subscribe((mdFileName: string) => {
         this.mdFileNameChanged.emit(mdFileName);
-        console.log('no file name', mdFileName);
       });
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes?.currentMdFile?.currentValue) {
+    if (changes?.currentMdFile?.currentValue)
       this.mdFileNameControl.setValue(this.currentMdFile.name);
-    } else {
-      this.mdFileNameControl.setValue('');
-    }
   }
 
   ngOnDestroy(): void {

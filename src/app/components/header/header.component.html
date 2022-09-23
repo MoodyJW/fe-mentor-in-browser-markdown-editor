@@ -5,7 +5,8 @@
     (actionClicked)="hamburgerClicked($event)"
   ></app-action-button>
   <app-current-file-name
-    [currentMdFile]="currentUser.currentMdFile ?? null"
+    [isMobileScreen]="isMobileScreen"
+    [currentMdFile]="currentUser.currentMdFile"
     (mdFileNameChanged)="updateMdFileName($event)"
   ></app-current-file-name>
   <div class="delete-save-container">
@@ -15,6 +16,7 @@
       (actionClicked)="openDeleteModal()"
     ></app-action-button>
     <app-action-button
+      [isMobileScreen]="isMobileScreen"
       [actionType]="'save'"
       [disabled]="!newMdFileName"
       (actionClicked)="saveMdFile()"

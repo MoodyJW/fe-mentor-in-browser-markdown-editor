@@ -55,32 +55,32 @@
 
 # tablet
 
-- [ ] tablet
-  - [ ] global styles
-  - [ ] sidenav
-    - [ ] new file
-      - [ ] styles
-    - [ ] current files
-      - [ ] styles
-    - [ ] toggle theme
-      - [ ] styles
-    - [ ] styles
-  - [ ] header
-    - [ ] menu toggle
-      - [ ] styles
-    - [ ] file name
-      - [ ] styles
-    - [ ] delete
-      - [ ] styles
-    - [ ] save
-      - [ ] styles
-    - [ ] styles
-  - [ ] preview bar
-    - [ ] styles
-  - [ ] content
-    - [ ] styles
-  - [ ] delete modal
-    - [ ] styles
+- [x] tablet
+  - [x] global styles
+  - [x] sidenav
+    - [x] new file
+      - [x] styles
+    - [x] current files
+      - [x] styles
+    - [x] toggle theme
+      - [x] styles
+    - [x] styles
+  - [x] header
+    - [x] menu toggle
+      - [x] styles
+    - [x] file name
+      - [x] styles
+    - [x] delete
+      - [x] styles
+    - [x] save
+      - [x] styles
+    - [x] styles
+  - [x] preview bar
+    - [x] styles
+  - [x] content
+    - [x] styles
+  - [x] delete modal
+    - [x] styles
 
 # desktop
 
@@ -116,6 +116,8 @@
 
 - [x] improve file name generation to avoid duplicate file names _fixed by changing to random words/number for files_
   - [x] if user deletes files out of order the file name can be repeated
+- [ ] consider resize service/directive
+- [x] the doc name resets to null on resize???
 
 # improvement ideas
 

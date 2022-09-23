@@ -40,12 +40,23 @@
       [matTooltipDisabled]="!disabled"
     >
       <button
+        *ngIf="isMobileScreen; else largerSaveButton"
         (click)="saveCurrentFile()"
         [disabled]="disabled"
-        class="save-button"
+        class="save-button mobile"
       >
         <img src="../../../assets/icon-save.svg" alt="" class="save-icon" />
       </button>
+      <ng-template #largerSaveButton>
+        <button
+          (click)="saveCurrentFile()"
+          [disabled]="disabled"
+          class="save-button large"
+        >
+          <img src="../../../assets/icon-save.svg" alt="" class="save-icon" />
+          Save Changes
+        </button>
+      </ng-template>
     </div>
   </ng-container>
   <ng-container *ngSwitchCase="'confirmDelete'">

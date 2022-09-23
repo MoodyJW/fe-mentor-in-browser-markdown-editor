@@ -2,6 +2,7 @@
   <img src="../../../assets/icon-document.svg" alt="" />
   <div class="current-file-name">
     <mat-form-field>
+      <mat-label *ngIf="!isMobileScreen">Document Name</mat-label>
       <input
         matInput
         autocomplete="off"

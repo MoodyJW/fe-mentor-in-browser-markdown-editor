@@ -12,7 +12,8 @@ export class ActionButtonComponent {
     | 'save'
     | 'sidenavToggle'
     | 'confirmDelete';
-  @Input() disabled = false;
+  @Input() disabled = true;
+  @Input() isMobileScreen = false;
   @Output() actionClicked = new EventEmitter<any>();
 
   menuIsOpen = true;

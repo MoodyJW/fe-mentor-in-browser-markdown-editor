@@ -22,7 +22,7 @@ export class FilesService {
           words[1]
         }-${this.generateRandomNumber(1, 99)}`;
         const newFile = {
-          id: this.firestore.createId(),
+          id: this.createFileId(),
           createdAt: { seconds: Date.now() },
           name: newFileName,
           content: '',
@@ -32,6 +32,10 @@ export class FilesService {
           currentMdFile: newFile,
         });
       });
+  }
+
+  createFileId(): string {
+    return this.firestore.createId();
   }
 
   saveFile(currentUser: User): void {
