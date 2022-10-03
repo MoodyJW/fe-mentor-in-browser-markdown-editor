@@ -17,6 +17,7 @@ import 'showdown/dist/showdown.js';
 
 import { MdFile } from 'src/app/models/md-file.model';
 import { DEFAULT_DEBOUNCE } from 'src/app/constants/default-values';
+import { SCREEN_WIDTHS } from 'src/app/constants/screen-sizes';
 
 @Component({
   selector: 'app-md-content',
@@ -35,14 +36,17 @@ export class MdContentComponent implements OnChanges, OnInit, OnDestroy {
   mdPreview = '';
   unsubscribe$ = new Subject();
   isMobileScreen = false;
+  isLargeScreen = false;
 
   @HostListener('window:resize', ['$event'])
   onResize() {
-    this.isMobileScreen = window.innerWidth < 600;
+    this.isMobileScreen = window.innerWidth < SCREEN_WIDTHS.MOBILE_MAX;
+    this.isLargeScreen = window.innerWidth > SCREEN_WIDTHS.DESKTOP_MIN;
   }
 
   ngOnInit() {
-    this.isMobileScreen = window.innerWidth < 600;
+    this.isMobileScreen = window.innerWidth < SCREEN_WIDTHS.MOBILE_MAX;
+    this.isLargeScreen = window.innerWidth > SCREEN_WIDTHS.DESKTOP_MIN;
   }
 
   ngOnChanges(changes: SimpleChanges): void {

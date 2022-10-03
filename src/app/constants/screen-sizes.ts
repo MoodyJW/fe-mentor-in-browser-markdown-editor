@@ -1,0 +1,5 @@
+export enum SCREEN_WIDTHS {
+  MOBILE_MAX = 600,
+  TABLET_MIN = 600,
+  DESKTOP_MIN = 1000,
+}

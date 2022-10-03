@@ -1,9 +1,17 @@
-<div class="header-container">
-  <h1 *ngIf="isLargeScreen">MARKDOWN</h1>
+<div
+  class="header-container"
+  [ngClass]="{ large: isLargeScreen || isTabletOrLarger }"
+>
   <app-action-button
     [actionType]="'sidenavToggle'"
-    (actionClicked)="hamburgerClicked($event)"
+    [isTabletOrLarger]="isTabletOrLarger"
+    [menuIsOpen]="menuIsOpen"
+    (sidenavMenuClicked)="hamburgerClicked($event)"
   ></app-action-button>
+  <ng-container *ngIf="isLargeScreen">
+    <h1>MARKDOWN</h1>
+    <mat-divider vertical></mat-divider>
+  </ng-container>
   <app-current-file-name
     [isMobileScreen]="isMobileScreen"
     [currentMdFile]="currentUser.currentMdFile"

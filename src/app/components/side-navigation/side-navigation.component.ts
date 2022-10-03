@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { takeUntil, filter } from 'rxjs/operators';
 import { Observable, Subject } from 'rxjs';
 
@@ -6,6 +6,7 @@ import { MdFile, NewMdFileData } from '../../models/md-file.model';
 import { UserService } from '../../services/user.service';
 import { User } from '../../models/user.model';
 import { FilesService } from 'src/app/services/files.service';
+import { SCREEN_WIDTHS } from 'src/app/constants/screen-sizes';
 
 @Component({
   selector: 'app-side-navigation',
@@ -19,13 +20,20 @@ export class SideNavigationComponent implements OnInit, OnDestroy {
   userId: string = localStorage.getItem('inBrowserMarkdownId') ?? '';
   currentUser: User;
   unsubscribe$ = new Subject();
+  isLargeScreen = false;
 
   constructor(
     private userService: UserService,
     private filesService: FilesService
   ) {}
 
+  @HostListener('window:resize', ['$event'])
+  onResize(): void {
+    this.isLargeScreen = window.innerWidth > SCREEN_WIDTHS.DESKTOP_MIN;
+  }
+
   ngOnInit(): void {
+    this.isLargeScreen = window.innerWidth > SCREEN_WIDTHS.DESKTOP_MIN;
     if (!this.userId) {
       this.createNewUser();
     }
@@ -69,6 +77,10 @@ export class SideNavigationComponent implements OnInit, OnDestroy {
     this.filesService.saveFile(updatedCurrentUser);
   }
 
+  toggleSidenav(event: string): void {
+    this.menuIsOpen = event === 'open' ? true : false;
+  }
+
   private createNewUser(): void {
     this.userId = this.userService.createUserId();
     this.userService.createUser(this.userId);
@@ -78,10 +90,10 @@ export class SideNavigationComponent implements OnInit, OnDestroy {
     const users$: Observable<User[]> = this.userService.getUsers(this.userId);
     users$
       .pipe(
-        filter((users) => !!users),
+        filter((users: User[]) => !!users),
         takeUntil(this.unsubscribe$)
       )
-      .subscribe((users) => {
+      .subscribe((users: User[]) => {
         this.currentUser = users.find((user) => user.id === this.userId);
         if (!this.currentUser) return;
         this.isLoading = false;

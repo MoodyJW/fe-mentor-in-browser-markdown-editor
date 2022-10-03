@@ -21,7 +21,7 @@
       font-weight: 400;
       resize: none;
       outline: none;
-      color: var(--secondary-text);
+      color: var(--md-input-text);
     }
   }
 }
@@ -30,10 +30,15 @@
   display: flex;
   width: 100%;
   height: 100%;
+  justify-content: center;
 
   .markdown-input-container {
     width: 50%;
     height: 100%;
+
+    .markdown-input {
+      border-right: 1px solid var(--divider);
+    }
   }
 
   .markdown-preview-container {
@@ -44,6 +49,10 @@
 
     &.preview-only {
       width: 100%;
+
+      &.large {
+        width: 66vw;
+      }
     }
   }
 }

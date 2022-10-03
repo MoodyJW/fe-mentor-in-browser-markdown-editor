@@ -1,16 +1,12 @@
 <mat-sidenav-container
   class="sidenav-container"
-  [hasBackdrop]="false"
+  [hasBackdrop]="true"
   *ngIf="!isLoading; else spinner"
+  (backdropClick)="menuIsOpen = false"
 >
-  <mat-sidenav
-    #sidenav
-    [opened]="menuIsOpen"
-    [mode]="'push'"
-    [disableClose]="true"
-  >
+  <mat-sidenav #sidenav [opened]="menuIsOpen" [mode]="'push'">
     <div class="sidenav-menu-container">
-      <h1 class="sidenav-header">MARKDOWN</h1>
+      <h1 class="sidenav-header" *ngIf="!isLargeScreen">MARKDOWN</h1>
       <h2 class="sidenav-subheader">MY DOCUMENTS</h2>
       <app-action-button
         [actionType]="'create'"
@@ -30,7 +26,8 @@
   <mat-sidenav-content class="sidenav-content">
     <app-header
       [currentUser]="currentUser"
-      (toggleSidenav)="menuIsOpen = $event"
+      [menuIsOpen]="menuIsOpen"
+      (toggleSidenav)="toggleSidenav($event)"
       (saveCurrentMdFile)="saveCurrentMdFile($event)"
     ></app-header>
     <app-preview-bar (previewToggled)="showMd = $event"></app-preview-bar>
@@ -39,7 +36,6 @@
       [showMd]="showMd"
       (mdFileContentChanged)="currentUser.currentMdFile.content = $event"
     ></app-md-content>
-    <footer><a href="https://github.com/MoodyJW">github</a></footer>
   </mat-sidenav-content>
 </mat-sidenav-container>
 

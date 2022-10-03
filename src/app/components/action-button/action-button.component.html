@@ -1,6 +1,10 @@
 <ng-container [ngSwitch]="actionType">
   <ng-container *ngSwitchCase="'sidenavToggle'">
-    <button (click)="sidenavToggleClicked()" class="sidenav-toggle-button">
+    <button
+      (click)="sidenavToggleClicked()"
+      class="sidenav-toggle-button"
+      [ngClass]="{ large: isTabletOrLarger }"
+    >
       <ng-container *ngIf="!menuIsOpen">
         <img
           class="hamburger-icon"
@@ -52,6 +56,7 @@
           (click)="saveCurrentFile()"
           [disabled]="disabled"
           class="save-button large"
+          [matTooltip]="'Document Name is Required'"
         >
           <img src="../../../assets/icon-save.svg" alt="" class="save-icon" />
           Save Changes

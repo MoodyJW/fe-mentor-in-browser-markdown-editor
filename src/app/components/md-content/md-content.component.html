@@ -21,6 +21,7 @@
       <ng-template #showLargePreview>
         <div
           class="markdown-preview-container preview-only"
+          [ngClass]="{ large: isLargeScreen }"
           [innerHtml]="mdPreview"
         ></div>
       </ng-template>

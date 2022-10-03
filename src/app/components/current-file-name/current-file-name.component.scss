@@ -7,6 +7,10 @@
   font-family: "Roboto";
   font-size: 15px;
 
+  &.small-screen {
+    margin-left: 14px;
+  }
+
   .current-file-name {
     display: flex;
     align-items: center;

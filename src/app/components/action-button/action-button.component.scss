@@ -3,6 +3,11 @@
   height: 56px;
   width: 56px;
 
+  &.large {
+    height: 72px;
+    width: 72px;
+  }
+
   .hamburger-icon {
     height: 14px;
   }

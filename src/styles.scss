@@ -1,32 +1,10 @@
 @use "@angular/material" as mat;
 @include mat.core();
 
-$breakpoints: (
-  "mobile": (
-    min-width: 375px,
-  ),
-  "tablet": (
-    min-width: 700px,
-  ),
-  "desktop": (
-    min-width: 1000px,
-  ),
-) !default;
-
-@mixin respond-to($breakpoint) {
-  @if map-has-key($breakpoints, $breakpoint) {
-    @media #{inspect(map-get($breakpoints, $breakpoint))} {
-      @content;
-    }
-  } @else {
-    @warn "no value from `#{$breakpoint}`. "
-        + "available: #{map-keys($breakpoints)}.";
-  }
-}
-
 :root {
   --primary-text: hsla(0, 0%, 100%, 1);
   --secondary-text: hsla(222, 9%, 78%, 1);
+  --md-input-text: var(--secondary-text);
   --subdued: hsla(213, 4%, 51%, 1);
   --header-text: hsla(0, 0%, 100%, 1);
   --primary-bg: hsla(225, 9%, 9%, 1);
@@ -48,6 +26,7 @@ $breakpoints: (
   .light-theme {
     --primary-text: hsla(216, 9%, 23%, 1);
     --secondary-text: hsla(216, 4%, 51%, 1);
+    --md-input-text: var(--primary-text);
     --header-text: hsla(216, 9%, 23%, 1);
     --primary-bg: hsla(0, 0%, 100%, 1);
     --secondary-bg: hsla(0, 0%, 96%, 1);
@@ -245,4 +224,30 @@ mat-dialog-container {
 .mat-form-field-label-wrapper {
   top: -0.4em;
   color: var(--subdued);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scroll-thumb);
+  border-radius: 4px;
+
+  &:hover {
+    background: var(--subdued);
+  }
+}
+
+.scroller {
+  scrollbar-color: var(--scroll-thumb) transparent;
+  scrollbar-width: 8px;
+}
+
+.small-screen {
+  .mat-form-field-infix {
+    width: fit-content !important;
+  }
 }
