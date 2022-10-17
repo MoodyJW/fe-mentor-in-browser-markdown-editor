@@ -53,6 +53,11 @@ export class SideNavigationComponent implements OnInit, OnDestroy {
 
   switchCurrentMdFile(mdFile: MdFile): void {
     if (this.currentUser.currentMdFile.id === mdFile.id) return;
+    const autosaveFile = {
+      currentMdFile: this.currentUser.currentMdFile,
+      newMdFileName: mdFile.name,
+    };
+    this.saveCurrentMdFile(autosaveFile);
     this.filesService.changeCurrentFile(this.userId, mdFile);
   }
 
