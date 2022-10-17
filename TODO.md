@@ -131,6 +131,6 @@
 - [ ] snackbar notifications for actions
 - [ ] add actual user creation/auth
 - [ ] save most recent deleted so user can undo or maybe add timer for undo
-- [ ] either auto save on file switch or prompt for saving
+- [x] either auto save on file switch or prompt for saving
 - [ ] could add search, sorting, etc for file list
 - [ ] write some tests...
