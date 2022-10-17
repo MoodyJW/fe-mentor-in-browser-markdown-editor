@@ -53,7 +53,8 @@ body {
   font-weight: 400;
   font-size: 14px;
   color: var(--primary-text);
-  transition-duration: 500ms;
+  transition: all 500ms;
+  transition-delay: 100ms;
   -webkit-font-smoothing: auto;
   -moz-osx-font-smoothing: auto;
 

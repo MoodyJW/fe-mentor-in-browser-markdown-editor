@@ -12,12 +12,20 @@
         [actionType]="'create'"
         (actionClicked)="createNewFile()"
       ></app-action-button>
-      <div class="files-list-container" *ngIf="currentUser.mdFiles">
+      <div
+        class="files-list-container"
+        *ngIf="currentUser.mdFiles.length; else noDocuments"
+      >
         <app-md-files-list
           [currentUser]="currentUser"
           (mdFileSelected)="switchCurrentMdFile($event)"
         ></app-md-files-list>
       </div>
+      <ng-template #noDocuments>
+        <div class="no-files">
+          No files found. Create a new file to get started!
+        </div>
+      </ng-template>
       <div class="theme-toggle-container">
         <app-theme-toggle></app-theme-toggle>
       </div>

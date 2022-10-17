@@ -27,8 +27,8 @@ export class CurrentFileNameComponent implements OnInit, OnDestroy, OnChanges {
   unsubscribe$ = new Subject();
 
   ngOnInit(): void {
-    this.mdFileNameChanged.emit(this.currentMdFile.name);
-    this.mdFileNameControl.setValue(this.currentMdFile.name);
+    this.mdFileNameChanged.emit(this.currentMdFile?.name);
+    this.mdFileNameControl.setValue(this.currentMdFile?.name ?? '');
     this.mdFileNameControl.valueChanges
       .pipe(distinctUntilChanged(), takeUntil(this.unsubscribe$))
       .subscribe((mdFileName: string) => {
@@ -37,8 +37,8 @@ export class CurrentFileNameComponent implements OnInit, OnDestroy, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes?.currentMdFile?.currentValue)
-      this.mdFileNameControl.setValue(this.currentMdFile.name);
+    if (!changes || !changes.currentMdFile) return;
+    this.mdFileNameControl.setValue(this.currentMdFile?.name ?? null);
   }
 
   ngOnDestroy(): void {

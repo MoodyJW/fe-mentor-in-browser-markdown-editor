@@ -52,6 +52,7 @@ export class SideNavigationComponent implements OnInit, OnDestroy {
   }
 
   switchCurrentMdFile(mdFile: MdFile): void {
+    if (this.currentUser.currentMdFile.id === mdFile.id) return;
     this.filesService.changeCurrentFile(this.userId, mdFile);
   }
 

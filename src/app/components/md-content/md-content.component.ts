@@ -37,6 +37,7 @@ export class MdContentComponent implements OnChanges, OnInit, OnDestroy {
   unsubscribe$ = new Subject();
   isMobileScreen = false;
   isLargeScreen = false;
+  placeholder = 'Enter your markdown here...';
 
   @HostListener('window:resize', ['$event'])
   onResize() {
@@ -52,7 +53,7 @@ export class MdContentComponent implements OnChanges, OnInit, OnDestroy {
   ngOnChanges(changes: SimpleChanges): void {
     if (!changes?.currentMdFile?.currentValue) return;
     this.mdContent =
-      this.currentMdFile?.content.replace(/\n{2,}/g, (m) =>
+      this.currentMdFile?.content?.replace(/\n{2,}/g, (m) =>
         m.replace(/\n/g, '<br/>')
       ) ?? null;
     this.mdContent = this.mdContent?.replace(/<br\/>([^<])/g, '<br/>\n\n$1');
