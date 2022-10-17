@@ -1,18 +1,23 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnDestroy } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Observable, Subject } from 'rxjs';
 import { take } from 'rxjs/operators';
+
 import { MdFile } from '../models/md-file.model';
 import { User } from '../models/user.model';
 
 @Injectable({
   providedIn: 'root',
 })
-export class FilesService {
+export class FilesService implements OnDestroy {
   unsubscribe$ = new Subject();
 
   constructor(private firestore: AngularFirestore, public http: HttpClient) {}
+
+  ngOnDestroy(): void {
+    this.unsubscribe$.next();
+  }
 
   createNewFile(userId: string, currentFiles: MdFile[]): void {
     this.createRandomFileName()
@@ -63,7 +68,7 @@ export class FilesService {
   private createRandomFileName(): Observable<any> {
     return this.http.get(
       `https://random-word-api.herokuapp.com/word?number=2&length=${this.generateRandomNumber(
-        1,
+        3,
         10
       )}`
     );

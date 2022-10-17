@@ -84,33 +84,33 @@
 
 # desktop
 
-- [ ] desktop
-  - [ ] tablet
-  - [ ] global styles
-  - [ ] sidenav
-    - [ ] new file
-      - [ ] styles
-    - [ ] current files
-      - [ ] styles
-    - [ ] toggle theme
-      - [ ] styles
-    - [ ] styles
-  - [ ] header
-    - [ ] menu toggle
-      - [ ] styles
-    - [ ] file name
-      - [ ] styles
-    - [ ] delete
-      - [ ] styles
-    - [ ] save
-      - [ ] styles
-    - [ ] styles
-  - [ ] preview bar
-    - [ ] styles
-  - [ ] content
-    - [ ] styles
-  - [ ] delete modal
-    - [ ] styles
+- [x] desktop
+  - [x] tablet
+  - [x] global styles
+  - [x] sidenav
+    - [x] new file
+      - [x] styles
+    - [x] current files
+      - [x] styles
+    - [x] toggle theme
+      - [x] styles
+    - [x] styles
+  - [x] header
+    - [x] menu toggle
+      - [x] styles
+    - [x] file name
+      - [x] styles
+    - [x] delete
+      - [x] styles
+    - [x] save
+      - [x] styles
+    - [x] styles
+  - [x] preview bar
+    - [x] styles
+  - [x] content
+    - [x] styles
+  - [x] delete modal
+    - [x] styles
 
 # bugs/refactor
 
@@ -125,5 +125,6 @@
 - [ ] snackbar notifications for actions
 - [ ] add actual user creation/auth
 - [ ] save most recent deleted so user can undo or maybe add timer for undo
+- [ ] either auto save on file switch or prompt for saving
 - [ ] could add search, sorting, etc for file list
 - [ ] write some tests...

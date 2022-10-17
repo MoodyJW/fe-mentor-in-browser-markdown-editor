@@ -6,6 +6,8 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrls: ['./action-button.component.scss'],
 })
 export class ActionButtonComponent {
+  @Output() actionClicked = new EventEmitter<string>();
+  @Output() sidenavMenuClicked = new EventEmitter<'open' | 'close'>();
   @Input() actionType:
     | 'openConfirm'
     | 'create'
@@ -14,13 +16,12 @@ export class ActionButtonComponent {
     | 'confirmDelete';
   @Input() disabled = true;
   @Input() isMobileScreen = false;
-  @Output() actionClicked = new EventEmitter<any>();
-
-  menuIsOpen = true;
+  @Input() isTabletOrLarger = false;
+  @Input() menuIsOpen = true;
 
   sidenavToggleClicked(): void {
     this.menuIsOpen = !this.menuIsOpen;
-    this.actionClicked.emit(this.menuIsOpen);
+    this.sidenavMenuClicked.emit(this.menuIsOpen ? 'open' : 'close');
   }
 
   openConfirmDeleteDialog(): void {

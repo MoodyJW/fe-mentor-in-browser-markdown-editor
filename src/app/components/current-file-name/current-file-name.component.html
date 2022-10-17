@@ -1,4 +1,7 @@
-<div class="current-file-container">
+<div
+  class="current-file-container"
+  [ngClass]="{ 'small-screen': isMobileScreen }"
+>
   <img src="../../../assets/icon-document.svg" alt="" />
   <div class="current-file-name">
     <mat-form-field>

@@ -1,6 +1,10 @@
 <ng-container [ngSwitch]="actionType">
   <ng-container *ngSwitchCase="'sidenavToggle'">
-    <button (click)="sidenavToggleClicked()" class="sidenav-toggle-button">
+    <button
+      (click)="sidenavToggleClicked()"
+      class="sidenav-toggle-button"
+      [ngClass]="{ large: isTabletOrLarger }"
+    >
       <ng-container *ngIf="!menuIsOpen">
         <img
           class="hamburger-icon"
@@ -35,7 +39,7 @@
   </ng-container>
   <ng-container *ngSwitchCase="'save'">
     <div
-      [matTooltip]="'A file name is required'"
+      [matTooltip]="'A document name is required'"
       [matTooltipClass]="'disabled-action-tooltip'"
       [matTooltipDisabled]="!disabled"
     >

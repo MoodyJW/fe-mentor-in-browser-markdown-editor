@@ -3,6 +3,26 @@
   align-items: center;
   background-color: var(--toolbar-bg);
 
+  &.large {
+    height: 72px;
+  }
+
+  h1 {
+    color: var(--sidenav-header);
+    font-size: 15px;
+    line-height: 18px;
+    letter-spacing: 5px;
+    position: relative;
+    left: 24px;
+    margin-right: 24px;
+  }
+
+  mat-divider {
+    height: 50px;
+    color: var(--divider);
+    margin-left: 24px;
+  }
+
   .delete-save-container {
     margin-left: auto;
     display: flex;
