@@ -112,6 +112,12 @@
   - [x] delete modal
     - [x] styles
 
+# clean up
+
+- [ ] finish readme
+- [ ] figure out firebase config for deployment
+- [ ] deploy to gh pages
+
 # bugs/refactor
 
 - [x] improve file name generation to avoid duplicate file names _fixed by changing to random words/number for files_
