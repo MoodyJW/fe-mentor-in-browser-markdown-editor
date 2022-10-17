@@ -112,6 +112,12 @@
   - [x] delete modal
     - [x] styles
 
+# clean up
+
+- [ ] finish readme
+- [ ] figure out firebase config for deployment
+- [ ] deploy to gh pages
+
 # bugs/refactor
 
 - [x] improve file name generation to avoid duplicate file names _fixed by changing to random words/number for files_
@@ -125,6 +131,6 @@
 - [ ] snackbar notifications for actions
 - [ ] add actual user creation/auth
 - [ ] save most recent deleted so user can undo or maybe add timer for undo
-- [ ] either auto save on file switch or prompt for saving
+- [x] either auto save on file switch or prompt for saving
 - [ ] could add search, sorting, etc for file list
 - [ ] write some tests...

@@ -53,6 +53,11 @@ export class SideNavigationComponent implements OnInit, OnDestroy {
 
   switchCurrentMdFile(mdFile: MdFile): void {
     if (this.currentUser.currentMdFile.id === mdFile.id) return;
+    const autosaveFile = {
+      currentMdFile: this.currentUser.currentMdFile,
+      newMdFileName: mdFile.name,
+    };
+    this.saveCurrentMdFile(autosaveFile);
     this.filesService.changeCurrentFile(this.userId, mdFile);
   }
 
@@ -91,12 +96,11 @@ export class SideNavigationComponent implements OnInit, OnDestroy {
     const users$: Observable<User[]> = this.userService.getUsers(this.userId);
     users$
       .pipe(
-        filter((users: User[]) => !!users),
+        filter((users: User[]) => !!users.length),
         takeUntil(this.unsubscribe$)
       )
       .subscribe((users: User[]) => {
-        this.currentUser = users.find((user) => user.id === this.userId);
-        if (!this.currentUser) return;
+        this.currentUser = users[0];
         this.isLoading = false;
       });
   }
