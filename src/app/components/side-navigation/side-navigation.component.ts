@@ -45,10 +45,17 @@ export class SideNavigationComponent implements OnInit, OnDestroy {
   }
 
   createNewFile(): void {
-    this.filesService.createNewFile(
-      this.currentUser.id,
-      this.currentUser.mdFiles
-    );
+    if (this.currentUser.currentMdFile) {
+      const autosaveFile = {
+        currentMdFile: this.currentUser.currentMdFile,
+        newMdFileName: this.currentUser.currentMdFile.name,
+      };
+      this.saveCurrentMdFile(autosaveFile, true);
+    } else
+      this.filesService.createNewFile(
+        this.currentUser.id,
+        this.currentUser.mdFiles
+      );
   }
 
   switchCurrentMdFile(mdFile: MdFile): void {
@@ -61,7 +68,7 @@ export class SideNavigationComponent implements OnInit, OnDestroy {
     this.filesService.changeCurrentFile(this.userId, mdFile);
   }
 
-  saveCurrentMdFile(newMdFileData: NewMdFileData): void {
+  saveCurrentMdFile(newMdFileData: NewMdFileData, createNewFile = false): void {
     const updatedMdFiles = this.currentUser.mdFiles.map((mdFile: MdFile) =>
       mdFile.id === newMdFileData.currentMdFile.id
         ? {
@@ -81,6 +88,11 @@ export class SideNavigationComponent implements OnInit, OnDestroy {
       mdFiles: updatedMdFiles,
     };
     this.filesService.saveFile(updatedCurrentUser);
+    if (createNewFile)
+      this.filesService.createNewFile(
+        updatedCurrentUser.id,
+        updatedCurrentUser.mdFiles
+      );
   }
 
   toggleSidenav(event: string): void {
