@@ -6,14 +6,10 @@
       [ngClass]="{ large: isTabletOrLarger }"
     >
       <ng-container *ngIf="!menuIsOpen">
-        <img
-          class="hamburger-icon"
-          src="../../../assets/icon-menu.svg"
-          alt=""
-        />
+        <mat-icon>menu</mat-icon>
       </ng-container>
       <ng-container *ngIf="menuIsOpen">
-        <img class="close-icon" src="../../../assets/icon-close.svg" alt="" />
+        <mat-icon>close</mat-icon>
       </ng-container>
     </button>
   </ng-container>
@@ -33,7 +29,7 @@
         class="delete-button"
         [disabled]="disabled"
       >
-        <img src="../../../assets/icon-delete.svg" alt="" />
+        <mat-icon class="subdued medium-icon">delete_outline</mat-icon>
       </button>
     </div>
   </ng-container>
@@ -49,7 +45,7 @@
         [disabled]="disabled"
         class="save-button mobile"
       >
-        <img src="../../../assets/icon-save.svg" alt="" class="save-icon" />
+        <mat-icon class="small-icon">save</mat-icon>
       </button>
       <ng-template #largerSaveButton>
         <button
@@ -57,7 +53,7 @@
           [disabled]="disabled"
           class="save-button large"
         >
-          <img src="../../../assets/icon-save.svg" alt="" class="save-icon" />
+          <mat-icon class="small-icon">save</mat-icon>
           Save Changes
         </button>
       </ng-template>
