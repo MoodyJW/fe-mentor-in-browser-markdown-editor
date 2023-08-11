@@ -2,8 +2,10 @@
   <ng-container *ngIf="!isLargeScreen">
     <p>{{ showMd ? "MARKDOWN" : "PREVIEW" }}</p>
     <button class="preview-toggle" (click)="toggleMdPreview()">
-      <img *ngIf="showMd" src="../../../assets/icon-show-preview.svg" alt="" />
-      <img *ngIf="!showMd" src="../../../assets/icon-hide-preview.svg" alt="" />
+      <mat-icon *ngIf="showMd" class="small-icon subdued">visibility</mat-icon>
+      <mat-icon *ngIf="!showMd" class="small-icon subdued">
+        visibility_off
+      </mat-icon>
     </button>
   </ng-container>
 </div>
